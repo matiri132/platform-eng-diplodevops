@@ -37,24 +37,23 @@
 						Plataformas, portales y estandarización
 					</p>
 					<p class="tagline">
-						Docente invitado: <strong>[nombre]</strong> — Craftech · 2026
+						Docente invitado: <strong>Matias Machado</strong> — Platform Senior
+						Engineer, Craftech · 2026
 					</p>
 				</section>
 
 				<!-- 2 · El recorrido -->
 				<section>
 					<h2>El recorrido</h2>
-					<div
-						style="display:grid; grid-template-columns:repeat(7,1fr); gap:0.4em; margin-top:0.6em"
-					>
-						<div class="ct-card"><div class="num">1</div><div class="ct-title">DevOps</div></div>
-						<div class="ct-card"><div class="num">2</div><div class="ct-title">Su límite</div></div>
-						<div class="ct-card"><div class="num">3</div><div class="ct-title">La plataforma que ya existe</div></div>
-						<div class="ct-card"><div class="num">4</div><div class="ct-title">El portal</div></div>
-						<div class="ct-card"><div class="num">5</div><div class="ct-title">El estándar</div></div>
-						<div class="ct-card"><div class="num">6</div><div class="ct-title">Port</div></div>
-						<div class="ct-card"><div class="num">7</div><div class="ct-title">Los agentes</div></div>
-					</div>
+					<ol class="dd-steps s7">
+						<li><span class="n">1</span><span class="t">DevOps</span></li>
+						<li><span class="n">2</span><span class="t">Su límite</span></li>
+						<li><span class="n">3</span><span class="t">La plataforma implícita</span></li>
+						<li><span class="n">4</span><span class="t">El portal</span></li>
+						<li><span class="n">5</span><span class="t">El estándar</span></li>
+						<li><span class="n">6</span><span class="t">Port</span></li>
+						<li><span class="n">7</span><span class="t">Los agentes</span></li>
+					</ol>
 					<div class="ct-objective">
 						<span>Orden</span>
 						De un problema de organización a una herramienta. La herramienta viene al final, y a propósito.
@@ -113,14 +112,12 @@
 				<!-- 5 · El ciclo -->
 				<section>
 					<h2>El ciclo que se retroalimenta</h2>
-					<div
-						style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5em; margin-top:0.5em"
-					>
-						<div class="ct-card"><div class="ct-title">Despliegues infrecuentes</div></div>
-						<div class="ct-card"><div class="ct-title">→ lotes grandes</div></div>
-						<div class="ct-card"><div class="ct-title">→ más riesgosos</div></div>
-						<div class="ct-card"><div class="ct-title">→ se hacen menos seguido</div></div>
-					</div>
+					<ol class="dd-steps" style="grid-template-columns:repeat(4,1fr)">
+						<li><span class="n">1</span><span class="t">Despliegues infrecuentes</span></li>
+						<li><span class="n">2</span><span class="t">Lotes grandes</span></li>
+						<li><span class="n">3</span><span class="t">Más riesgosos</span></li>
+						<li><span class="n">4</span><span class="t">Se hacen menos seguido</span></li>
+					</ol>
 					<p style="font-size:0.6em; margin-top:0.7em">
 						Ventanas mensuales o trimestrales, de noche, con equipos de guardia. Era
 						riesgoso porque era infrecuente, lo que lo hacía grande, lo que lo volvía
@@ -650,7 +647,7 @@
 				<!-- 27 · Siete capacidades -->
 				<section>
 					<h2>Siete capacidades</h2>
-					<div class="ct-cards" style="grid-template-columns:repeat(4,1fr)">
+					<div class="ct-cards c4">
 						<div class="ct-card"><div class="num">1</div><div class="ct-title">Catálogo y modelo de datos</div></div>
 						<div class="ct-card"><div class="num">2</div><div class="ct-title">Ingesta automática</div></div>
 						<div class="ct-card"><div class="num">3</div><div class="ct-title">Autoservicio y scaffolding</div></div>
@@ -726,7 +723,7 @@
 				</section>
 
 				<!-- 31 · Scorecards -->
-				<section>
+				<section class="dense">
 					<h2>Estándares y scorecards</h2>
 					<div class="ct-cards">
 						<div class="ct-card">
@@ -745,6 +742,10 @@
 							<p>Requiere artefactos reales que se pueden abrir</p>
 						</div>
 					</div>
+					<figure class="dd-figure">
+						<img src="assets/port/scorecard-de-una-entidad.png" alt="Pestaña de scorecards de una entidad en Port, con la progresión Basic, Bronze, Silver, Gold" />
+						<figcaption>El scorecard de un servicio, con su progresión por niveles · docs.port.io</figcaption>
+					</figure>
 					<div class="ct-objective">
 						<span>Qué cambia</span>
 						De auditar una vez por trimestre a <strong>medir de forma continua</strong>; de
@@ -787,6 +788,10 @@
 							<p>Entidad pasa a obsoleta → tiene infraestructura → abre el ticket y lo asigna</p>
 						</div>
 					</div>
+					<figure class="dd-figure">
+						<img src="assets/port/catalogo-reglas.png" alt="Vista de catálogo en Port con columnas de reglas de scorecard" />
+						<figcaption>Una vista de catálogo con las reglas como columnas · docs.port.io</figcaption>
+					</figure>
 					<div class="ct-objective">
 						<span>Regla de automatización</span>
 						<strong>Actuar, no solo avisar.</strong> La que crea el ticket y lo asigna vale
@@ -804,16 +809,16 @@
 					<h2>Panorama de herramientas</h2>
 					<table class="tight">
 						<tr><th>Herramienta</th><th>Naturaleza</th><th>Licencia</th><th>Énfasis</th></tr>
-						<tr><td>Backstage</td><td>Framework de portal</td><td>Open source, Apache 2.0</td><td>Extensibilidad; se programa</td></tr>
-						<tr><td>Port</td><td>Portal, producto SaaS</td><td>Privado</td><td>Modelo de datos propio, tiempo a valor</td></tr>
-						<tr><td>Cortex</td><td>Portal, producto</td><td>Privado</td><td>Estándares y madurez de servicios</td></tr>
-						<tr><td>OpsLevel</td><td>Portal, producto</td><td>Privado</td><td>Propiedad, salud, compuertas de despliegue</td></tr>
-						<tr><td>Spotify Portal</td><td>Distribución de Backstage</td><td>Privado sobre open source</td><td>Backstage sin construirlo</td></tr>
-						<tr><td>Roadie</td><td>Backstage gestionado</td><td>Privado sobre open source</td><td>Lo mismo, con otro proveedor</td></tr>
-						<tr style="background:#EAF5F7"><td><strong>Humanitec</strong></td><td><strong>Orquestador, no portal</strong></td><td>Privado</td><td>Ejecuta el aprovisionamiento</td></tr>
-						<tr style="background:#EAF5F7"><td><strong>Kratix</strong></td><td><strong>Framework de plataforma</strong></td><td>Open source</td><td>Capacidades como promises de Kubernetes</td></tr>
+						<tr><td>Backstage</td><td>Framework de portal</td><td>Open source</td><td>Extensibilidad; se programa</td></tr>
+						<tr><td>Port</td><td>Portal SaaS</td><td>Privado</td><td>Modelo de datos propio, tiempo a valor</td></tr>
+						<tr><td>Cortex</td><td>Portal</td><td>Privado</td><td>Estándares y madurez de servicios</td></tr>
+						<tr><td>OpsLevel</td><td>Portal</td><td>Privado</td><td>Propiedad, salud, compuertas</td></tr>
+						<tr><td>Spotify Portal</td><td>Distribución de Backstage</td><td>Privado sobre OSS</td><td>Backstage sin construirlo</td></tr>
+						<tr><td>Roadie</td><td>Backstage gestionado</td><td>Privado sobre OSS</td><td>Lo mismo, otro proveedor</td></tr>
+						<tr style="background:#EAF5F7"><td><strong>Humanitec</strong></td><td><strong>Orquestador</strong></td><td>Privado</td><td>Ejecuta el aprovisionamiento</td></tr>
+						<tr style="background:#EAF5F7"><td><strong>Kratix</strong></td><td><strong>Framework de plataforma</strong></td><td>Open source</td><td>Capacidades como promises de K8s</td></tr>
 					</table>
-					<p class="muted" style="font-size:0.48em; margin-top:0.3em">
+					<p class="muted" style="font-size:0.42em; margin-top:0.25em">
 						Las dos últimas no compiten con las anteriores: van debajo. Y la licencia gratis
 						no incluye el equipo que la mantiene.
 					</p>
@@ -866,7 +871,7 @@
 				</section>
 
 				<!-- 33c · Autoservicio real -->
-				<section>
+				<section class="dense">
 					<h2>Autoservicio real, o ticket con otra cara</h2>
 					<table>
 						<tr><th>Pregunta</th><th>Autoservicio real</th><th>Ticket con otra cara</th></tr>
@@ -947,14 +952,14 @@ repositorio  registro  servicio  descubrimiento  ruta
 				<!-- 37 · La escalera -->
 				<section>
 					<h2>De estandarizar a automatizar</h2>
-					<div class="ct-cards" style="grid-template-columns:repeat(6,1fr); gap:0.35em">
-						<div class="ct-card"><div class="num">1</div><div class="ct-title">Manual y tribal</div></div>
-						<div class="ct-card"><div class="num">2</div><div class="ct-title">Documentado</div></div>
-						<div class="ct-card"><div class="num">3</div><div class="ct-title">Automatizado</div></div>
-						<div class="ct-card"><div class="num">4</div><div class="ct-title">Autoservicio</div></div>
-						<div class="ct-card"><div class="num">5</div><div class="ct-title">Automático</div></div>
-						<div class="ct-card"><div class="num">6</div><div class="ct-title">Agéntico</div></div>
-					</div>
+					<ol class="dd-steps s6">
+						<li><span class="n">1</span><span class="t">Manual y tribal</span></li>
+						<li><span class="n">2</span><span class="t">Documentado</span></li>
+						<li><span class="n">3</span><span class="t">Automatizado</span></li>
+						<li><span class="n">4</span><span class="t">Autoservicio</span></li>
+						<li><span class="n">5</span><span class="t">Automático</span></li>
+						<li><span class="n">6</span><span class="t">Agéntico</span></li>
+					</ol>
 					<div class="ct-objective">
 						<span>La regla</span>
 						<strong>Cada escalón necesita que el anterior esté estandarizado.</strong> No se
@@ -982,8 +987,13 @@ repositorio  registro  servicio  descubrimiento  ruta
 						<em class="accent">agentic engineering platform</em>, con el catálogo renombrado
 						a <strong>Context Lake</strong>.
 					</p>
-					<div class="dd-shot">FIGURA 7.1 — pantalla de inicio de la organización de demostración, con el menú lateral visible</div>
-					<p class="dd-source">docs.port.io</p>
+					<figure class="dd-figure big">
+						<img src="assets/port/catalogo-scorecards-por-equipo.png" alt="Interfaz de Port: catálogo de microservicios agrupado por equipo, con columnas de scorecard" />
+						<figcaption>
+							El catálogo, agrupado por equipo y con los scorecards como columnas ·
+							captura de la documentación pública de Port
+						</figcaption>
+					</figure>
 				</section>
 
 				<!-- 39 · Features leídas como problemas -->
@@ -1013,9 +1023,11 @@ repositorio  registro  servicio  descubrimiento  ruta
 							<tr><td><strong>Entidad</strong></td><td>Instancia concreta</td><td>Objeto, o fila</td></tr>
 							<tr><td><strong>Relación</strong></td><td>Vínculo tipado</td><td>Clave foránea</td></tr>
 						</table>
-						<div class="dd-shot">FIGURA 7.2 — el grafo del modelo de datos</div>
+						<figure class="dd-figure">
+							<img src="assets/port/crear-relacion.png" alt="Formulario de creación de una relación entre blueprints en Port" />
+							<figcaption>Declarar una relación entre dos blueprints · docs.port.io</figcaption>
+						</figure>
 					</div>
-					<p class="dd-source">docs.port.io/context-lake/data-model</p>
 				</section>
 
 				<!-- 41 · Mirror property -->
@@ -1057,14 +1069,14 @@ repositorio  registro  servicio  descubrimiento  ruta
 				<!-- 42 · La escalera, otra vez -->
 				<section>
 					<h2>La escalera, otra vez</h2>
-					<div class="ct-cards" style="grid-template-columns:repeat(6,1fr); gap:0.35em">
-						<div class="ct-card" style="opacity:0.45"><div class="num">1</div><div class="ct-title">Manual</div></div>
-						<div class="ct-card" style="opacity:0.45"><div class="num">2</div><div class="ct-title">Documentado</div></div>
-						<div class="ct-card" style="opacity:0.45"><div class="num">3</div><div class="ct-title">Automatizado</div></div>
-						<div class="ct-card" style="opacity:0.45"><div class="num">4</div><div class="ct-title">Autoservicio</div></div>
-						<div class="ct-card" style="opacity:0.45"><div class="num">5</div><div class="ct-title">Automático</div></div>
-						<div class="ct-card" style="border-color:var(--dd-blue); border-width:2px; background:#fff"><div class="num">6</div><div class="ct-title">Agéntico</div></div>
-					</div>
+					<ol class="dd-steps s6">
+						<li class="past"><span class="n">1</span><span class="t">Manual y tribal</span></li>
+						<li class="past"><span class="n">2</span><span class="t">Documentado</span></li>
+						<li class="past"><span class="n">3</span><span class="t">Automatizado</span></li>
+						<li class="past"><span class="n">4</span><span class="t">Autoservicio</span></li>
+						<li class="past"><span class="n">5</span><span class="t">Automático</span></li>
+						<li class="now"><span class="n">6</span><span class="t">Agéntico</span></li>
+					</ol>
 					<p style="font-size:0.62em; margin-top:0.7em">
 						Acá estamos ahora. Y este escalón <strong>necesita los cinco anteriores</strong>.
 					</p>
@@ -1132,7 +1144,7 @@ repositorio  registro  servicio  descubrimiento  ruta
 						Organización aislada, datos ficticios, infraestructura real en una cuenta de
 						laboratorio. Seis minutos desde el formulario hasta un servicio respondiendo.
 					</p>
-					<div class="ct-cards" style="grid-template-columns:repeat(4,1fr)">
+					<div class="ct-cards c4">
 						<div class="ct-card"><div class="num">1</div><div class="ct-title">Modelo de datos</div></div>
 						<div class="ct-card"><div class="num">2</div><div class="ct-title">Catálogo y trazabilidad</div></div>
 						<div class="ct-card"><div class="num">3</div><div class="ct-title">Acción de autoservicio</div></div>
@@ -1164,15 +1176,40 @@ repositorio  registro  servicio  descubrimiento  ruta
 				<!-- 47 · Para seguir -->
 				<section class="on-dark" data-background-color="#4A86E6">
 					<h1 class="accented" style="font-size:1.5em; color:#fff">Para seguir</h1>
-					<div class="ct-cards" style="grid-template-columns:repeat(4,1fr)">
+					<div class="ct-cards c4">
 						<div class="ct-card"><div class="num">Apunte</div><div class="ct-title">El material completo de la clase</div></div>
 						<div class="ct-card"><div class="num">CNCF</div><div class="ct-title">Platforms White Paper</div></div>
 						<div class="ct-card"><div class="num">Backstage</div><div class="ct-title">demo.backstage.io — navegable, sin registro</div></div>
 						<div class="ct-card"><div class="num">2009</div><div class="ct-title">10+ Deploys per Day, la charla fundacional</div></div>
 					</div>
 					<p class="tagline" style="margin-top:0.9em">
-						[nombre] — Craftech · [contacto]
+						matiri132.github.io/platform-eng-diplodevops
 					</p>
+				</section>
+
+				<!-- 48 · Cierre -->
+				<section class="closing">
+					<img
+						src="assets/blob-2.png"
+						style="position:absolute; right:-70px; top:-60px; width:300px; opacity:0.5"
+						alt=""
+					/>
+					<div class="dd-closing">
+						<img class="foto" src="assets/foto-matias.png" alt="Matias Machado" />
+						<div>
+							<p class="gracias">¡Muchas gracias!<br />Hasta la próxima :)</p>
+							<p class="nombre">Matias Machado</p>
+							<p class="rol">Platform Senior Engineer @Craftech</p>
+							<p class="contacto">
+								<img src="assets/icon-linkedin.png" alt="LinkedIn" />
+								/in/matias-machado/
+							</p>
+							<p class="contacto">
+								<img src="assets/icon-mail.png" alt="Correo" />
+								matiasmachado@unc.edu.ar
+							</p>
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>

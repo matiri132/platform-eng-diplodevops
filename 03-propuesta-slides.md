@@ -247,6 +247,8 @@ Qué es, en dos líneas. Mención de que en 2026 se reposicionó alrededor del c
 **Figura 7.1**: captura de la pantalla de inicio con el menú lateral visible.
 Al pie: docs.port.io
 
+> **Imágenes de producto.** Las slides 37, 43, 50 y 52 llevan capturas de la documentación pública de Port, con la fuente en el epígrafe. Sirven mientras las capturas de la organización de demostración estén pendientes, y algunas conviene conservarlas incluso después: muestran el producto con datos que no dependen del estado del laboratorio.
+
 **39 · ★ Features leídas como problemas**
 La tabla problema → feature, con cinco filas visibles. No se leen todas: se desarrollan cuatro.
 Sin captura: esta slide es conceptual y la imagen competiría con el texto.
@@ -294,7 +296,10 @@ Los cinco objetivos de aprendizaje, reformulados como afirmaciones en primera pe
 
 **47 · Para seguir**
 Cuatro recursos con códigos QR: el apunte, el white paper de CNCF, la demo pública de Backstage, la charla de 2009 de Allspaw y Hammond.
-Al pie, el contacto del docente.
+Al pie, la dirección del repositorio.
+
+**48 · Cierre**
+Al formato de la última filmina del deck institucional: fondo blanco, foto circular con el marco #DiploDevOps a la izquierda, y a la derecha "¡Muchas gracias! Hasta la próxima :)" en azul, nombre, rol, y los dos contactos con sus iconos. Elemento decorativo arriba a la derecha.
 
 ---
 
@@ -305,7 +310,8 @@ Al pie, el contacto del docente.
 | Texto | Máximo cinco líneas por slide. Ningún párrafo |
 | Tipografía | Mínimo 24 pt para cuerpo. Las capturas se recortan antes que reducirse |
 | Citas | Verbatim, en el idioma original, con fuente al pie. No se traducen en la slide |
-| Capturas | Solo de la organización de demostración, recortadas al área relevante, sin barra de navegador ni pestañas visibles |
+| Capturas propias | Solo de la organización de demostración, recortadas al área relevante, sin barra de navegador ni pestañas visibles |
+| Capturas de producto | Las de Port salen de su documentación pública. Cada una lleva la atribución en el epígrafe |
 | Diagramas | Construidos, no capturados de otras presentaciones |
 | Animación | Solo revelado progresivo en las slides 13, 15, 22 y 37. Ninguna transición entre slides |
 | Transición de bloque | Reaparece la slide 2 con el paso actual resaltado |
@@ -319,7 +325,7 @@ Al pie, el contacto del docente.
 |---|---|---|
 | 1 | Plantilla, paleta, tipografía y logo vectorial de DiploDevops | La construcción del archivo final |
 | 2 | Formato de entrega esperado por el programa | La elección de herramienta |
-| 3 | Nombre del docente para portada y cierre | Slides 1 y 47 |
+| 3 | ~~Nombre del docente~~ | ✅ Matias Machado — Platform Senior Engineer, Craftech |
 | 7 | Temario de los módulos anteriores de la diplomatura | La slide 20b: sin él, los temas quedan genéricos en lugar de nombrar las clases que el grupo cursó |
 | 8 | Confirmación de qué nube se usó en los módulos previos | Qué variante del diagrama oficial mostrar en la slide 20 |
 | 4 | Las seis capturas de la organización de demostración, tomadas tras el ensayo (especificadas en la sección 7.7 del apunte) | Slides 38, 40, 41 y 41b |

@@ -4,7 +4,7 @@ Presentación reveal.js de la clase, con la identidad de la diplomatura.
 
 | | |
 |---|---|
-| Slides | 55 de contenido, más 7 separadores de bloque y 1 de reserva oculta |
+| Slides | 56 de contenido, más 7 separadores de bloque y 1 de reserva oculta |
 | Tema | `dist/theme/diplodevops.css` |
 | Identidad | Derivada del deck institucional de la diplomatura — ver [`../04-diseno-diplodevops.md`](../04-diseno-diplodevops.md) |
 | Contenido | [`../03-propuesta-slides.md`](../03-propuesta-slides.md) · notas del orador desde [`../02-guia-docente.md`](../02-guia-docente.md) |
@@ -28,8 +28,8 @@ Para exportar a PDF, abrir `http://localhost:8000/?print-pdf` y usar la impresi�
 
 | # | Pendiente | Dónde |
 |---|---|---|
-| 1 | Nombre y contacto del docente | Slides 1 y 47 — buscar `[nombre]` y `[contacto]` |
-| 2 | Las seis capturas de Port | Recuadros punteados `.dd-shot`, slides 38 a 41b |
+| 1 | ~~Nombre y contacto del docente~~ | ✅ Hecho: portada y filmina de cierre |
+| 2 | Las capturas de la organización de demostración | Recuadros punteados `.dd-shot` de la slide 41b. El resto del bloque usa capturas de la documentación pública de Port |
 | 3 | El diagrama oficial de los cinco planos | Recuadro punteado de la slide 20 |
 | 4 | Nombres reales de los módulos previos | Slide 20b |
 | 5 | Video de respaldo de la demostración | Slide gemela de la 45 |
