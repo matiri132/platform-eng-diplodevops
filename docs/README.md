@@ -6,8 +6,8 @@ Presentación reveal.js de la clase, con la identidad de la diplomatura.
 |---|---|
 | Slides | 54 de contenido —una de reserva, oculta— más 7 separadores de bloque |
 | Tema | `dist/theme/diplodevops.css` |
-| Identidad | Derivada del deck institucional de la diplomatura — ver [`../04-diseno-diplodevops.md`](../04-diseno-diplodevops.md) |
-| Contenido | [`../03-propuesta-slides.md`](../03-propuesta-slides.md) · notas del orador desde [`../02-guia-docente.md`](../02-guia-docente.md) |
+| Identidad | Paleta, tipografía y logos del deck institucional de la diplomatura |
+| Contenido | [`../01-apunte-teorico.md`](../01-apunte-teorico.md) · las notas del orador viajan embebidas en las slides |
 
 ## Ver y presentar
 
@@ -37,7 +37,7 @@ Para exportar a PDF, abrir `http://localhost:8000/?print-pdf` y usar la impresi�
 
 ## Estructura del tema
 
-Mismo vocabulario de clases que el tema Craftech, con la paleta y la tipografía de la diplomatura. Las clases están documentadas en [`../04-diseno-diplodevops.md`](../04-diseno-diplodevops.md), sección 6.
+Mismo vocabulario de clases que el tema Craftech, con la paleta y la tipografía de la diplomatura.
 
 Lo que conviene saber para editar:
 

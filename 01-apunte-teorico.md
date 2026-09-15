@@ -18,7 +18,7 @@ Extensión completa: alrededor de 70 minutos de lectura. El apunte cubre más de
 | Antes de la clase | Secciones 1 y 2 | 20 min |
 | Después de la clase | Completo | 70 min |
 | Lectura mínima | 2.4, 4.1, 5.1 y 6 | 12 min |
-| Docente | Completo, más [`02-guia-docente.md`](02-guia-docente.md) | 90 min |
+| Docente | Completo, más la guía del docente, que no se publica | 90 min |
 
 Las secciones 1.1 y 1.2 incluyen el detalle de las dos fuentes fundacionales —la entrevista a Werner Vogels y la charla de Flickr— con todos sus conceptos explicados. Quien ya los conozca puede saltearlos sin perder el hilo.
 

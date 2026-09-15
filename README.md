@@ -12,10 +12,7 @@ UNC · FCEFyN · Secretaría de Extensión.
 | Archivo | Qué es | Extensión |
 |---|---|---|
 | [`01-apunte-teorico.md`](01-apunte-teorico.md) | Material del alumno. El recorrido completo, con fuentes citadas y glosario | ~70 min de lectura |
-| [`02-guia-docente.md`](02-guia-docente.md) | Guion por bloque, tiempos, guion de la demostración, libros y prácticas explicadas, pronunciación | ~25 min |
-| [`03-propuesta-slides.md`](03-propuesta-slides.md) | Las 55 slides descriptas una por una, con criterios de maquetado | ~10 min |
-| [`04-diseno-diplodevops.md`](04-diseno-diplodevops.md) | El sistema de diseño de la diplomatura, con los arquetipos de slide como prompts reutilizables | ~8 min |
-| [`docs/`](docs/) | El deck reveal.js, publicado en GitHub Pages | — |
+| [`docs/`](docs/) | Las filminas, publicadas en GitHub Pages | 54 slides |
 
 ## De qué trata la clase
 
@@ -41,9 +38,11 @@ origen comercial están marcadas con ⚠️ para que se lean con el criterio que
 
 ## Qué no está acá
 
-El código de la demostración —blueprints, acciones, scorecards, Terraform y los repositorios
-de plantilla— **queda en Craftech** y no se publica. Este repositorio contiene el material
-didáctico: el apunte, la guía del docente y las filminas.
+Este repositorio publica lo que le sirve a quien cursa: **el apunte y las filminas**.
+
+Quedan en Craftech, sin publicar, el código de la demostración —blueprints, acciones,
+scorecards, Terraform y los repositorios de plantilla— y los materiales de preparación del
+dictado: la guía del docente, la descripción slide por slide y el sistema de diseño.
 
 ## Licencia y uso
 
