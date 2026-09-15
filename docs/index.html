@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+
+		<title>De DevOps a Platform Engineering — DiploDevOps</title>
+		<link rel="icon" href="assets/infinito-azul.png" />
+
+		<link rel="stylesheet" href="dist/reset.css" />
+		<link rel="stylesheet" href="dist/reveal.css" />
+		<link rel="stylesheet" href="dist/theme/diplodevops.css" id="theme" />
+		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- ============ APERTURA ============ -->
+
+				<!-- 1 · Portada -->
+				<section
+					class="title-slide on-dark"
+					data-background-color="#4A86E6"
+					data-auto-animate
+				>
+					<img
+						src="assets/infinito-white.png"
+						style="position:absolute; left:-90px; bottom:-40px; width:300px; opacity:0.35"
+						alt=""
+					/>
+					<div class="eyebrow">Diplomatura en DevOps · Módulo Platform Engineering</div>
+					<h1>De DevOps a<br />Platform Engineering</h1>
+					<p class="muted" style="font-size:0.62em; margin-top:0.4em">
+						Plataformas, portales y estandarización
+					</p>
+					<p class="tagline">
+						Docente invitado: <strong>[nombre]</strong> — Craftech · 2026
+					</p>
+				</section>
+
+				<!-- 2 · El recorrido -->
+				<section>
+					<h2>El recorrido</h2>
+					<div
+						style="display:grid; grid-template-columns:repeat(7,1fr); gap:0.4em; margin-top:0.6em"
+					>
+						<div class="ct-card"><div class="num">1</div><div class="ct-title">DevOps</div></div>
+						<div class="ct-card"><div class="num">2</div><div class="ct-title">Su límite</div></div>
+						<div class="ct-card"><div class="num">3</div><div class="ct-title">La plataforma que ya existe</div></div>
+						<div class="ct-card"><div class="num">4</div><div class="ct-title">El portal</div></div>
+						<div class="ct-card"><div class="num">5</div><div class="ct-title">El estándar</div></div>
+						<div class="ct-card"><div class="num">6</div><div class="ct-title">Port</div></div>
+						<div class="ct-card"><div class="num">7</div><div class="ct-title">Los agentes</div></div>
+					</div>
+					<div class="ct-objective">
+						<span>Orden</span>
+						De un problema de organización a una herramienta. La herramienta viene al final, y a propósito.
+					</div>
+					<aside class="notes">
+						Anunciar el recorrido en una frase. Esta slide se repite como transición
+						entre bloques, con el paso actual resaltado.
+					</aside>
+				</section>
+
+				<!-- 3 · Encuadre -->
+				<section>
+					<h2>Encuadre</h2>
+					<ul style="font-size:0.72em">
+						<li>Se usa una herramienta comercial como ejemplo. <strong>No es una recomendación de compra.</strong></li>
+						<li>La demostración corre sobre una organización aislada, con datos ficticios.</li>
+						<li>El docente trabaja en una consultora que implementa estas plataformas. Ese sesgo se declara ahora y se contrapesa al final.</li>
+					</ul>
+				</section>
+
+				<!-- ============ DEVOPS ============ -->
+				<section class="divider on-dark" data-background-color="#1D419F">
+					<div class="kicker">Bloque 1</div>
+					<h1>DevOps</h1>
+					<p class="muted" style="font-size:0.6em; margin-top:0.5em">
+						Qué resolvió, y qué problema nuevo dejó
+					</p>
+				</section>
+
+				<!-- 4 · El muro -->
+				<section>
+					<h2>El muro</h2>
+					<div class="dd-two">
+						<div class="dd-panel">
+							<strong>Desarrollo</strong>
+							<ul class="small" style="margin-top:0.3em">
+								<li>Se le pedía: funcionalidad nueva</li>
+								<li>Se lo medía por: velocidad de cambio</li>
+							</ul>
+						</div>
+						<div class="dd-panel">
+							<strong>Operaciones</strong>
+							<ul class="small" style="margin-top:0.3em">
+								<li>Se le pedía: sostener producción</li>
+								<li>Se lo medía por: estabilidad, ausencia de incidentes</li>
+							</ul>
+						</div>
+					</div>
+					<p style="font-size:0.58em; margin-top:0.6em">
+						Cada cambio amenazaba el objetivo de la otra área. Desarrollo
+						<em class="accent">tiraba el software por encima del muro</em> y operaciones lo
+						recibía sin haber participado de ninguna decisión que lo hiciera operable.
+					</p>
+				</section>
+
+				<!-- 5 · El ciclo -->
+				<section>
+					<h2>El ciclo que se retroalimenta</h2>
+					<div
+						style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5em; margin-top:0.5em"
+					>
+						<div class="ct-card"><div class="ct-title">Despliegues infrecuentes</div></div>
+						<div class="ct-card"><div class="ct-title">→ lotes grandes</div></div>
+						<div class="ct-card"><div class="ct-title">→ más riesgosos</div></div>
+						<div class="ct-card"><div class="ct-title">→ se hacen menos seguido</div></div>
+					</div>
+					<p style="font-size:0.6em; margin-top:0.7em">
+						Ventanas mensuales o trimestrales, de noche, con equipos de guardia. Era
+						riesgoso porque era infrecuente, lo que lo hacía grande, lo que lo volvía
+						riesgoso.
+					</p>
+				</section>
+
+				<!-- 6 · You build it, you run it -->
+				<section>
+					<h2>Amazon rompe el ciclo, 2006</h2>
+					<div class="dd-quote">
+						<div class="en">
+							"You build it, you run it. This brings developers into contact with the
+							day-to-day operation of their software. It also brings them into
+							day-to-day contact with the customer."
+						</div>
+						<div class="es">
+							"Quien lo construye, lo opera. Esto pone a quien desarrolla en contacto
+							con la operación diaria de su software. También lo pone en contacto
+							diario con el cliente."
+						</div>
+						<div class="src">
+							Werner Vogels, entrevistado por Jim Gray — ACM Queue, 2006
+						</div>
+					</div>
+					<p class="dd-source">queue.acm.org/detail.cfm?id=1142065</p>
+				</section>
+
+				<!-- 7 · 2009 -->
+				<section>
+					<h2>2009: dos hechos</h2>
+					<div class="dd-two">
+						<div class="ct-card">
+							<div class="num">Junio</div>
+							<div class="ct-title">Velocity, O'Reilly</div>
+							<p>
+								Allspaw (ops) y Hammond (dev), de Flickr, presentan
+								<em class="accent">10+ Deploys per Day</em>. Una empresa desplegando
+								diez veces por día cuando la norma era mensual.
+							</p>
+						</div>
+						<div class="ct-card">
+							<div class="num">Octubre</div>
+							<div class="ct-title">DevOpsDays, Gante</div>
+							<p>
+								Debois no pudo viajar, vio la charla por streaming y organizó su
+								propio encuentro. Ahí aparece el término <em class="accent">DevOps</em>.
+							</p>
+						</div>
+					</div>
+					<p style="font-size:0.56em; margin-top:0.6em" class="muted">
+						El nombre quedó del hashtag, acortado para entrar en los 140 caracteres de
+						Twitter.
+					</p>
+					<p class="dd-source">youtube.com/watch?v=LdOe18KhtT4 · blog.newrelic.com</p>
+				</section>
+
+				<!-- 8 · Qué proponía -->
+				<section>
+					<h2>Qué proponía</h2>
+					<ul style="font-size:0.66em">
+						<li><strong>Responsabilidad compartida.</strong> Quien construye participa de operar</li>
+						<li><strong>Automatización.</strong> Todo paso manual y repetido se automatiza</li>
+						<li><strong>Lotes pequeños y frecuentes.</strong> Cada despliegue chico es menos riesgoso</li>
+						<li><strong>Medición y retroalimentación.</strong> El equipo ve el efecto de sus cambios</li>
+					</ul>
+					<p class="muted" style="font-size:0.5em; margin-top:0.4em">
+						Acrónimo divulgado: CALMS. Sistematización: <em>The Phoenix Project</em> (2013) y
+						<em>The DevOps Handbook</em> (2016).
+					</p>
+				</section>
+
+				<!-- 9 · Qué resolvió -->
+				<section>
+					<h2>Qué resolvió: la evidencia</h2>
+					<table>
+						<tr><th>Dimensión</th><th>Métrica</th><th>Qué mide</th></tr>
+						<tr><td>Rendimiento</td><td>Frecuencia de despliegue</td><td>Cada cuánto se libera a producción</td></tr>
+						<tr><td>Rendimiento</td><td>Lead time para cambios</td><td>Del commit a producción</td></tr>
+						<tr><td>Estabilidad</td><td>Tasa de fallas de cambios</td><td>Despliegues que causan degradación</td></tr>
+						<tr><td>Estabilidad</td><td>Tiempo de restauración</td><td>Cuánto tarda en recuperarse</td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>Hallazgo central</span>
+						Velocidad y estabilidad <strong>no se oponen</strong>. Los equipos de mejor
+						desempeño puntúan alto en las cuatro a la vez.
+					</div>
+					<p class="dd-source">DORA — Accelerate State of DevOps · dora.dev</p>
+				</section>
+
+				<!-- 9b · Westrum (reserva) -->
+				<section data-visibility="hidden">
+					<h2>Tipología de Westrum</h2>
+					<table>
+						<tr><th>Tipo</th><th>Orientación</th><th>Qué hace con una mala noticia</th></tr>
+						<tr><td>Patológica</td><td>Al poder</td><td>Se oculta. El mensajero se castiga</td></tr>
+						<tr><td>Burocrática</td><td>A las reglas</td><td>Se ignora si no corresponde al procedimiento</td></tr>
+						<tr><td>Generativa</td><td>Al desempeño</td><td>Se busca. El fallo es información</td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>Por qué importa</span>
+						Cómo trata una organización a quien reporta un problema es un
+						<strong>predictor medible</strong> de su velocidad de entrega.
+					</div>
+					<aside class="notes">
+						Slide de reserva: mostrar solo si el bloque va adelantado. Está oculta con
+						data-visibility="hidden" — se llega con la barra de búsqueda o quitando el atributo.
+					</aside>
+					<p class="dd-source">Westrum, BMJ Quality &amp; Safety, 2004</p>
+				</section>
+
+				<!-- 10 · Conway -->
+				<section class="dense">
+					<h2>Ley de Conway, y el antipatrón</h2>
+					<div class="dd-quote">
+						<div class="en">
+							"Organizations which design systems […] are constrained to produce designs
+							which are copies of the communication structures of these organizations."
+						</div>
+						<div class="es">
+							"Las organizaciones que diseñan sistemas están obligadas a producir diseños
+							que son copias de sus estructuras de comunicación."
+						</div>
+						<div class="src">Melvin Conway, 1968</div>
+					</div>
+					<div class="dd-two" style="margin-top:0.5em">
+						<div>
+							<p><strong>Antipatrones frecuentes</strong></p>
+							<ul class="xsmall">
+								<li>Silos Dev y Ops</li>
+								<li>Silo del equipo DevOps</li>
+								<li>"Dev no necesita Ops"</li>
+								<li>DevOps como equipo de herramientas</li>
+								<li>SysAdmin renombrado · SRE falso</li>
+							</ul>
+						</div>
+						<div class="ct-objective" style="margin-top:0">
+							<span>Criterio</span>
+							Si se le piden cosas y las hace, es un silo. Si publica capacidades que
+							otros consumen sin pedirle nada, es plataforma.
+						</div>
+					</div>
+					<p class="dd-source">melconway.com · web.devopstopologies.com</p>
+				</section>
+
+				<!-- ============ POR QUÉ APARECE PLATFORM ENGINEERING ============ -->
+				<section class="divider on-dark" data-background-color="#1D419F">
+					<div class="kicker">Bloque 2</div>
+					<h1>Por qué aparece<br />Platform Engineering</h1>
+				</section>
+
+				<!-- 11 · Lo que cambió debajo -->
+				<section class="dense">
+					<h2>Lo que cambió debajo</h2>
+					<table>
+						<tr><th>Año</th><th>Cambio</th><th>Efecto</th></tr>
+						<tr><td>2006→</td><td>Cloud pública</td><td>La infraestructura pasa a ser software: se pide por API</td></tr>
+						<tr><td>2013</td><td>Docker</td><td>La unidad de entrega deja de ser el servidor y pasa a ser la imagen</td></tr>
+						<tr><td>2014→</td><td>Kubernetes</td><td>Despliegue declarativo, y mucho más configurable</td></tr>
+						<tr><td>2014→</td><td>Terraform e IaC</td><td>La infraestructura se versiona, se revisa y falla como código</td></tr>
+						<tr><td>2015→</td><td>Microservicios</td><td>Un sistema pasa de ser un despliegue a ser cincuenta</td></tr>
+						<tr><td>2020→</td><td>GitOps, service mesh, políticas como código</td><td>Más capas, cada una con su modelo mental</td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>El efecto que ninguna buscaba</span>
+						La superficie de conocimiento para poner un servicio en producción creció
+						<strong>más rápido que la capacidad de una persona para sostenerla</strong>.
+					</div>
+				</section>
+
+				<!-- 12 · Pregunta -->
+				<section class="statement on-dark" data-background-color="#4A86E6">
+					<p class="big">
+						¿Cuántas decisiones hay que tomar<br />para poner un "hola mundo" en producción?
+					</p>
+					<aside class="notes">
+						Recoger dos o tres respuestas a mano alzada. No corregirlas: la slide
+						siguiente las contesta.
+					</aside>
+				</section>
+
+				<!-- 13 · La respuesta -->
+				<section class="dense">
+					<h2>Más de treinta, antes de que el código haga algo útil</h2>
+					<table class="tight">
+						<tr><th>Dimensión</th><th>Decisiones</th></tr>
+						<tr><td>Código</td><td>Repositorio, convención de nombres, estructura, licencia, protección de rama</td></tr>
+						<tr><td>Empaquetado</td><td>Dockerfile o build nativo, registro de imágenes, versionado, firma</td></tr>
+						<tr><td>Infraestructura</td><td>Cuenta cloud, región, red, cómputo, almacenamiento, base de datos</td></tr>
+						<tr><td>Entrega</td><td>Pipeline de CI, pipeline de CD, estrategia de despliegue, rollback</td></tr>
+						<tr><td>Exposición</td><td>DNS, certificado TLS, balanceo, reglas de ingreso</td></tr>
+						<tr><td>Identidad</td><td>Roles de ejecución, permisos mínimos, gestión de secretos</td></tr>
+						<tr><td>Operación</td><td>Logs, métricas, alertas, objetivo de disponibilidad, contacto de guardia</td></tr>
+						<tr><td>Gobierno</td><td>Etiquetado de costos, retención de datos, controles de cumplimiento</td></tr>
+					</table>
+					<p class="muted" style="font-size:0.5em; margin-top:0.4em">
+						Ninguna es opcional en producción. Casi ninguna es específica del producto
+						que se está construyendo.
+					</p>
+					<aside class="notes">Contarla, no leerla. Nombrar tres o cuatro filas y dejar que la densidad haga el resto.</aside>
+				</section>
+
+				<!-- 14 · Shift left -->
+				<section>
+					<h2>El costo del shift left</h2>
+					<div class="dd-quote">
+						<div class="en">
+							"The shift left movement has forced developers to have an end-to-end
+							understanding of a growing number of complex, often infrastructure-centric
+							tools and workflows."
+						</div>
+						<div class="es">
+							"El movimiento de shift left obligó a quienes desarrollan a tener una
+							comprensión de punta a punta de una cantidad creciente de herramientas y
+							flujos de trabajo complejos, muchas veces centrados en infraestructura."
+						</div>
+						<div class="src">platformengineering.org</div>
+					</div>
+					<div class="ct-objective">
+						<span>Operaciones en la sombra</span>
+						La tarea no desapareció: se volvió invisible y quedó concentrada en dos o
+						tres personas que además tienen otro trabajo.
+					</div>
+				</section>
+
+				<!-- 15 · Carga cognitiva -->
+				<section>
+					<h2>Carga cognitiva</h2>
+					<div class="ct-cards">
+						<div class="ct-card">
+							<div class="num">Intrínseca</div>
+							<div class="ct-title">La habilidad que el trabajo requiere</div>
+							<p>Saber programar en el lenguaje del equipo</p>
+						</div>
+						<div class="ct-card">
+							<div class="num">Extrínseca</div>
+							<div class="ct-title">La mecánica del entorno</div>
+							<p>Recordar el nombre del bucket de estado de Terraform</p>
+						</div>
+						<div class="ct-card">
+							<div class="num">Germane</div>
+							<div class="ct-title">El dominio, lo diferenciador</div>
+							<p>Entender cómo se calcula un envío en el checkout</p>
+						</div>
+					</div>
+					<div class="ct-objective">
+						<span>El problema</span>
+						La extrínseca <strong>desplaza a la germane</strong>. Tres días armando
+						infraestructura son tres días menos en el problema por el que el equipo existe.
+					</div>
+					<aside class="notes">
+						Analogía: rendir un final en un aula desconocida, con una calculadora ajena.
+						La materia es la intrínseca; buscar el aula, la extrínseca; pensar el
+						problema, la germane.
+					</aside>
+				</section>
+
+				<!-- 16 · Definición -->
+				<section>
+					<h2>Definición</h2>
+					<div class="dd-quote">
+						<div class="en">
+							"Platform engineering is the discipline of designing and building
+							toolchains and workflows that enable self-service capabilities for
+							software engineering organizations in the cloud-native era."
+						</div>
+						<div class="es">
+							"…la disciplina de diseñar y construir cadenas de herramientas y flujos de
+							trabajo que habilitan capacidades de autoservicio para organizaciones de
+							ingeniería de software en la era cloud-native."
+						</div>
+						<div class="src">platformengineering.org · La CNCF agrega personas, procesos y políticas</div>
+					</div>
+					<div class="ct-objective">
+						<span>Lo que hay que retener</span>
+						No reemplaza a DevOps: <strong>organiza el trabajo que DevOps hizo necesario</strong>.
+					</div>
+				</section>
+
+				<!-- ============ PLATAFORMA ============ -->
+				<section class="divider on-dark" data-background-color="#1D419F">
+					<div class="kicker">Bloque 3</div>
+					<h1>Plataforma</h1>
+					<p class="muted" style="font-size:0.6em; margin-top:0.5em">
+						La que ya existe, aunque nadie la nombre
+					</p>
+				</section>
+
+				<!-- 17 · La plataforma que ya existe -->
+				<section class="statement on-dark" data-background-color="#4A86E6">
+					<p class="big">
+						Si una empresa despliega software a producción,<br />ya tiene una plataforma.
+					</p>
+					<p class="sub" style="color:rgba(255,255,255,0.8)">
+						La pregunta no es si existe. Es si es explícita o implícita.
+					</p>
+				</section>
+
+				<!-- 18 · Qué incluye -->
+				<section>
+					<h2>Lo que ya tiene, sin haberlo llamado plataforma</h2>
+					<ul style="font-size:0.6em">
+						<li>Un lugar donde vive el código, y una convención de cómo se organiza</li>
+						<li>Una forma de construir el artefacto y un lugar donde guardarlo</li>
+						<li>Un mecanismo de despliegue, aunque sean tres scripts y alguien que sabe el orden</li>
+						<li>Infraestructura corriendo, provista de alguna manera</li>
+						<li>Alguna forma de saber si está funcionando</li>
+						<li>Una manera de gestionar credenciales, aunque sea mala</li>
+						<li>Reglas sobre quién puede tocar producción</li>
+					</ul>
+				</section>
+
+				<!-- 19 · Implícita o explícita -->
+				<section class="dense">
+					<h2>Implícita o explícita</h2>
+					<table>
+						<tr><th>Dimensión</th><th>Implícita</th><th>Explícita</th></tr>
+						<tr><td>Dónde vive</td><td>En la cabeza de quienes llevan más tiempo</td><td>En código, documentación y automatización</td></tr>
+						<tr><td>Cómo se aprende</td><td>Preguntando</td><td>Leyendo y usando</td></tr>
+						<tr><td>Consistencia</td><td>Cada servicio se armó distinto</td><td>Los servicios nuevos se parecen entre sí</td></tr>
+						<tr><td>Onboarding</td><td>Semanas de acompañamiento</td><td>Días</td></tr>
+						<tr style="background:#EAF5F7"><td><strong>Si se va una persona</strong></td><td><strong>Se pierde capacidad</strong></td><td><strong>Se pierde una persona</strong></td></tr>
+						<tr><td>Quién la mantiene</td><td>Nadie explícitamente</td><td>Un equipo, con presupuesto</td></tr>
+					</table>
+				</section>
+
+				<!-- 20 · Los cinco planos -->
+				<section class="dense">
+					<h2>Los cinco planos</h2>
+					<div class="dd-shot" style="min-height:4.2em">
+						Diagrama oficial de la arquitectura de referencia, con los servicios de cada
+						plano.<br />Descargar de platformengineering.org/reports — variante AWS, Azure
+						o GCP según lo que el grupo cursó — y proyectar a pantalla completa con
+						atribución al pie.
+					</div>
+					<table class="tight" style="margin-top:0.4em">
+						<tr><th>#</th><th>Plano</th><th>Qué contiene</th></tr>
+						<tr><td>1</td><td>Control del desarrollador</td><td>Portal, repositorio, CLI, IDE, especificación de workload</td></tr>
+						<tr><td>2</td><td>Integración y entrega</td><td>CI, registro de imágenes, CD, orquestador, motor de IaC</td></tr>
+						<tr><td>3</td><td>Recursos</td><td>Clústeres, cómputo, bases de datos, red, DNS</td></tr>
+						<tr><td>4</td><td>Monitoreo y logging</td><td>Métricas, logs, trazas, alertas</td></tr>
+						<tr><td>5</td><td>Seguridad</td><td>Secretos, identidad, políticas</td></tr>
+					</table>
+					<p class="dd-source">Arquitectura de referencia: McKinsey Digital, PlatformCon 2023</p>
+				</section>
+
+				<!-- 20b · Dónde encaja lo que ya viste -->
+				<section class="dense">
+					<h2>Dónde encaja lo que ya cursaron</h2>
+					<table>
+						<tr><th>Tema</th><th>Plano</th><th>Qué aporta al conjunto</th></tr>
+						<tr><td>Git y flujo de ramas</td><td>1</td><td>La interfaz real de la mayoría de los cambios</td></tr>
+						<tr><td>Contenedores e imágenes</td><td>2</td><td>La unidad de entrega que atraviesa el pipeline</td></tr>
+						<tr><td>CI/CD</td><td>2</td><td>El camino automatizado del commit a producción</td></tr>
+						<tr><td>Infraestructura como código</td><td>2 y 3</td><td>Describe el plano 3 y se ejecuta desde el 2</td></tr>
+						<tr><td>Kubernetes</td><td>3</td><td>El sustrato de ejecución</td></tr>
+						<tr><td>Observabilidad</td><td>4</td><td>Convierte lo desplegado en operable</td></tr>
+						<tr><td>IAM y secretos</td><td>5</td><td>Qué puede hacer cada pieza, incluidas las automáticas</td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>El punto del bloque</span>
+						No aprendieron herramientas sueltas: vienen aprendiendo una plataforma por
+						partes, sin que nadie se las haya presentado junta.
+					</div>
+					<aside class="notes">
+						PENDIENTE: reemplazar los temas genéricos por los nombres reales de los
+						módulos anteriores de la diplomatura.
+					</aside>
+				</section>
+
+				<!-- 21 · Ejercicio -->
+				<section>
+					<h2>Ejercicio</h2>
+					<p style="font-size:0.62em">
+						Tomar una organización conocida y completar la tabla con sus herramientas
+						actuales.
+					</p>
+					<table>
+						<tr><th>Plano</th><th>Qué usa hoy</th></tr>
+						<tr><td>Control del desarrollador</td><td></td></tr>
+						<tr><td>Integración y entrega</td><td></td></tr>
+						<tr><td>Recursos</td><td></td></tr>
+						<tr><td>Monitoreo y logging</td><td></td></tr>
+						<tr><td>Seguridad</td><td></td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>Dos resultados, los dos informativos</span>
+						Si todos los planos tienen algo, la plataforma existe y está dispersa. Si uno
+						está vacío, ahí está el agujero — y un portal encima no lo tapa.
+					</div>
+				</section>
+
+				<!-- 22 · Definiciones -->
+				<section>
+					<h2>Definiciones</h2>
+					<div class="dd-quote">
+						<div class="en">
+							"A digital platform is a foundation of self-service APIs, tools, services,
+							knowledge and support which are arranged as a compelling internal product."
+						</div>
+						<div class="es">
+							"Una plataforma digital es una base de APIs, herramientas, servicios,
+							conocimiento y soporte de autoservicio, dispuestos como un producto interno
+							atractivo."
+						</div>
+						<div class="src">Evan Bottcher, martinfowler.com, 2018</div>
+					</div>
+					<p style="font-size:0.6em; margin-top:0.5em">
+						Tres palabras cargan el peso, y ninguna es una tecnología:
+						<em class="accent">self-service</em>, <em class="accent">product</em>,
+						<em class="accent">needs of the users</em>.
+					</p>
+				</section>
+
+				<!-- 23 · El costo de depender -->
+				<section class="statement">
+					<p class="big" style="font-size:2.2em">10–12×</p>
+					<p style="font-size:0.72em; margin-top:0.3em">
+						más lentas las tareas que requieren la intervención de otro equipo, frente al
+						trabajo independiente.
+					</p>
+					<p class="sub">
+						Es toda la justificación económica del autoservicio.
+					</p>
+					<p class="dd-source">Estudio citado en Bottcher, martinfowler.com, 2018</p>
+				</section>
+
+				<!-- 24 · Golden path -->
+				<section>
+					<h2>Golden path</h2>
+					<p style="font-size:0.62em">
+						El camino <strong>soportado y documentado</strong> para hacer algo común:
+						crear un servicio, agregar una base de datos, exponer una API. No es el único
+						camino posible; es el que la organización mantiene.
+					</p>
+					<p class="muted" style="font-size:0.54em">
+						Término acuñado por Spotify, tomado de <em>Hijos de Dune</em>, donde nombra la
+						única ruta que evita la catástrofe. Resolvía lo que en la empresa llamaban
+						<em>development by rumor</em>.
+					</p>
+					<div class="ct-objective">
+						<span>La propiedad que no se puede perder</span>
+						Es <strong>opcional</strong>. Si es obligatorio, volviste a tener tickets con
+						mejor tipografía.
+					</div>
+				</section>
+
+				<!-- 24b · Paved road -->
+				<section>
+					<h2>Paved road: la versión de Netflix</h2>
+					<div class="dd-two">
+						<div>
+							<p style="font-size:0.58em">
+								Un camino pavimentado que cruza un terreno: <strong>se puede ir por
+								afuera, pero el asfalto es más rápido</strong>. Netflix no impone la
+								adopción; se ocupa de que usarlo sea mejor que no usarlo.
+							</p>
+							<p style="font-size:0.58em">
+								Un equipo puede salirse —<em class="accent">go off-road</em>— y entonces
+								mantiene lo suyo y no recibe soporte central.
+							</p>
+						</div>
+						<div>
+							<div class="ct-card">
+								<div class="num">Efecto 1</div>
+								<div class="ct-title">El camino gana por mérito</div>
+								<p>La adopción voluntaria es una señal honesta de si sirve</p>
+							</div>
+							<div class="ct-card" style="margin-top:0.4em">
+								<div class="num">Efecto 2</div>
+								<div class="ct-title">Salirse tiene costo, no castigo</div>
+								<p>El equipo no viola una regla: paga un precio, y puede estar justificado</p>
+							</div>
+						</div>
+					</div>
+					<div class="ct-objective">
+						<span>Criterio de éxito</span>
+						Si muchos equipos se salen del camino, <strong>el problema es el camino</strong>.
+						En una organización que lo impone, esa señal desaparece.
+					</div>
+					<p class="dd-source">Netflix Technology Blog — Full Cycle Developers at Netflix, 2018</p>
+				</section>
+
+				<!-- ============ PORTAL ============ -->
+				<section class="divider on-dark" data-background-color="#1D419F">
+					<div class="kicker">Bloque 4</div>
+					<h1>Portal</h1>
+					<p class="muted" style="font-size:0.6em; margin-top:0.5em">
+						La interfaz sobre la plataforma
+					</p>
+				</section>
+
+				<!-- 25 · Platform ≠ Portal -->
+				<section>
+					<h2>Platform ≠ Portal</h2>
+					<div class="dd-two">
+						<div class="ct-card">
+							<div class="num">Internal Developer Platform</div>
+							<div class="ct-title">Las capacidades que aprovisionan y operan</div>
+							<p>Pipelines, módulos de IaC, clústeres, políticas, secretos. Los cinco planos.</p>
+						</div>
+						<div class="ct-card">
+							<div class="num">Internal Developer Portal</div>
+							<div class="ct-title">La interfaz sobre esas capacidades</div>
+							<p>Catálogo, formularios de autoservicio, estándares, tableros. Backstage, Port, Cortex, OpsLevel.</p>
+						</div>
+					</div>
+					<div class="ct-objective">
+						<span>La relación</span>
+						El portal <strong>dispara</strong> lo que la plataforma ya sabe hacer, y muestra
+						el resultado. No aprovisiona nada por sí mismo.
+					</div>
+				</section>
+
+				<!-- 26 · Portal sin plataforma -->
+				<section class="statement on-dark" data-background-color="#1D419F">
+					<p class="big">
+						Un portal sobre una empresa sin pipelines ni IaC produce un catálogo de
+						vínculos rotos y formularios que no hacen nada.
+					</p>
+					<aside class="notes">
+						Antes de mostrarla, preguntar: "si mañana instalan un portal en una empresa
+						que no tiene pipelines ni infraestructura como código, ¿qué obtienen?"
+					</aside>
+				</section>
+
+				<!-- 27 · Siete capacidades -->
+				<section>
+					<h2>Siete capacidades</h2>
+					<div class="ct-cards" style="grid-template-columns:repeat(4,1fr)">
+						<div class="ct-card"><div class="num">1</div><div class="ct-title">Catálogo y modelo de datos</div></div>
+						<div class="ct-card"><div class="num">2</div><div class="ct-title">Ingesta automática</div></div>
+						<div class="ct-card"><div class="num">3</div><div class="ct-title">Autoservicio y scaffolding</div></div>
+						<div class="ct-card"><div class="num">4</div><div class="ct-title">Estándares y scorecards</div></div>
+					</div>
+					<div class="ct-cards" style="grid-template-columns:repeat(3,1fr); margin-top:0.4em">
+						<div class="ct-card"><div class="num">5</div><div class="ct-title">Visualización</div></div>
+						<div class="ct-card"><div class="num">6</div><div class="ct-title">Permisos y gobierno</div></div>
+						<div class="ct-card"><div class="num">7</div><div class="ct-title">Automatizaciones</div></div>
+					</div>
+					<p class="muted" style="font-size:0.5em; margin-top:0.5em">
+						Un portal serio tiene las siete. La mayoría de los proyectos que fracasan
+						implementan solo la primera.
+					</p>
+				</section>
+
+				<!-- 28 · Catálogo -->
+				<section>
+					<h2>Catálogo y modelo de datos</h2>
+					<pre style="font-size:0.42em; line-height:1.4; box-shadow:none; background:#EAF5F7; border-radius:10px; padding:0.8em"><code class="plaintext nohighlight">cliente ──&lt; proyecto ──&lt; servicio &gt;── equipo
+                            │
+                            ├── entorno
+                            ├── repositorio
+                            └── infraestructura</code></pre>
+					<div class="ct-objective">
+						<span>Criterio de diseño</span>
+						El valor está en las <strong>relaciones</strong>, no en la lista. El modelo
+						refleja cómo la organización piensa, no cómo las herramientas exportan.
+					</div>
+				</section>
+
+				<!-- 29 · Ingesta -->
+				<section>
+					<h2>Ingesta</h2>
+					<table>
+						<tr><th>Mecanismo</th><th>Cómo funciona</th><th>Cuándo se usa</th></tr>
+						<tr><td>Integración pull</td><td>El portal consulta la API cada N minutos</td><td>Cloud, Git, Kubernetes</td></tr>
+						<tr><td>Webhook</td><td>La herramienta notifica ante un evento</td><td>Latencia baja</td></tr>
+						<tr><td>API directa</td><td>Un pipeline escribe durante su ejecución</td><td>Datos que solo existen al desplegar</td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>Regla</span>
+						Todo dato que alguien tenga que cargar a mano <strong>queda desactualizado</strong>.
+					</div>
+				</section>
+
+				<!-- 30 · Autoservicio -->
+				<section>
+					<h2>Autoservicio y scaffolding</h2>
+					<div class="dd-two">
+						<div class="dd-panel">
+							<strong>El formulario pregunta</strong>
+							<ul class="xsmall" style="margin-top:0.3em">
+								<li>Nombre del servicio</li><li>Descripción</li><li>Tipo</li>
+								<li>Criticidad</li><li>Proyecto · squad · entorno</li><li>Cuenta cloud</li>
+							</ul>
+						</div>
+						<div class="dd-panel">
+							<strong>El pipeline hace</strong>
+							<ul class="xsmall" style="margin-top:0.3em">
+								<li>Crea la entidad en el catálogo</li>
+								<li>Crea el repositorio desde la plantilla</li>
+								<li>Protege la rama, abre y mergea la PR</li>
+								<li>Aprovisiona con Terraform</li>
+								<li>Despliega y verifica</li>
+							</ul>
+						</div>
+					</div>
+					<div class="ct-objective">
+						<span>Criterio de diseño</span>
+						El formulario solo pregunta <strong>lo que la plataforma no puede averiguar</strong>.
+					</div>
+				</section>
+
+				<!-- 31 · Scorecards -->
+				<section>
+					<h2>Estándares y scorecards</h2>
+					<div class="ct-cards">
+						<div class="ct-card">
+							<div class="num">Bronce</div>
+							<div class="ct-title">Descripción, repositorio, dueño, trazable a cliente</div>
+							<p>Lo da el camino soportado, sin esfuerzo</p>
+						</div>
+						<div class="ct-card">
+							<div class="num">Plata</div>
+							<div class="ct-title">CI en verde, gestionado por IaC, rama protegida, desplegado</div>
+							<p>Lo demuestran los pipelines</p>
+						</div>
+						<div class="ct-card">
+							<div class="num">Oro</div>
+							<div class="ct-title">Runbook, alerta, SLO declarado, contacto de guardia</div>
+							<p>Requiere artefactos reales que se pueden abrir</p>
+						</div>
+					</div>
+					<div class="ct-objective">
+						<span>Qué cambia</span>
+						De auditar una vez por trimestre a <strong>medir de forma continua</strong>; de
+						perseguir equipos a mostrar una brecha.
+					</div>
+				</section>
+
+				<!-- 31b · Por qué no sí o no -->
+				<section>
+					<h2>Por qué por niveles y no por sí o no</h2>
+					<table>
+						<tr><th>Servicio</th><th>Cumple</th><th>Veredicto binario</th><th>Qué le falta de verdad</th></tr>
+						<tr><td><code class="plaintext nohighlight">checkout-api</code></td><td>19 de 20</td><td>❌ No cumple</td><td>El runbook</td></tr>
+						<tr><td><code class="plaintext nohighlight">legacy-billing</code></td><td>2 de 20</td><td>❌ No cumple</td><td>Dueño, repositorio, alertas — y corre en producción</td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>El problema del criterio binario</span>
+						Los dos se ven igual, y no están ni cerca de la misma situación. El equipo que
+						está a una regla del final aprende que <strong>esforzarse no cambia el resultado</strong>.
+					</div>
+				</section>
+
+				<!-- 31c · Tableros, permisos, automatizaciones -->
+				<section class="dense">
+					<h2>Tableros, permisos y automatizaciones</h2>
+					<div class="ct-cards">
+						<div class="ct-card">
+							<div class="num">Tableros por audiencia</div>
+							<div class="ct-title">Cada rol se hace otra pregunta</div>
+							<p><strong>Equipo:</strong> ¿qué arreglo esta semana?<br /><strong>Líder:</strong> ¿dónde está el riesgo?<br /><strong>Seguridad:</strong> ¿qué incumple hoy?</p>
+						</div>
+						<div class="ct-card">
+							<div class="num">Permisos y gobierno</div>
+							<div class="ct-title">Tres preguntas distintas</div>
+							<p>Quién ve · quién ejecuta · <strong>quién cambia las reglas</strong>. La tercera es la que se olvida.</p>
+						</div>
+						<div class="ct-card">
+							<div class="num">Automatizaciones</div>
+							<div class="ct-title">Disparador → condición → acción</div>
+							<p>Entidad pasa a obsoleta → tiene infraestructura → abre el ticket y lo asigna</p>
+						</div>
+					</div>
+					<div class="ct-objective">
+						<span>Regla de automatización</span>
+						<strong>Actuar, no solo avisar.</strong> La que crea el ticket y lo asigna vale
+						mucho más que la que manda un mensaje.
+					</div>
+					<aside class="notes">
+						Con estudiantes sin experiencia laboral, abrir por la analogía del campus
+						virtual: alumno, docente y secretaría miran los mismos datos en pantallas
+						distintas.
+					</aside>
+				</section>
+
+				<!-- 32 · Panorama de herramientas -->
+				<section class="dense">
+					<h2>Panorama de herramientas</h2>
+					<table class="tight">
+						<tr><th>Herramienta</th><th>Naturaleza</th><th>Licencia</th><th>Énfasis</th></tr>
+						<tr><td>Backstage</td><td>Framework de portal</td><td>Open source, Apache 2.0</td><td>Extensibilidad; se programa</td></tr>
+						<tr><td>Port</td><td>Portal, producto SaaS</td><td>Privado</td><td>Modelo de datos propio, tiempo a valor</td></tr>
+						<tr><td>Cortex</td><td>Portal, producto</td><td>Privado</td><td>Estándares y madurez de servicios</td></tr>
+						<tr><td>OpsLevel</td><td>Portal, producto</td><td>Privado</td><td>Propiedad, salud, compuertas de despliegue</td></tr>
+						<tr><td>Spotify Portal</td><td>Distribución de Backstage</td><td>Privado sobre open source</td><td>Backstage sin construirlo</td></tr>
+						<tr><td>Roadie</td><td>Backstage gestionado</td><td>Privado sobre open source</td><td>Lo mismo, con otro proveedor</td></tr>
+						<tr style="background:#EAF5F7"><td><strong>Humanitec</strong></td><td><strong>Orquestador, no portal</strong></td><td>Privado</td><td>Ejecuta el aprovisionamiento</td></tr>
+						<tr style="background:#EAF5F7"><td><strong>Kratix</strong></td><td><strong>Framework de plataforma</strong></td><td>Open source</td><td>Capacidades como promises de Kubernetes</td></tr>
+					</table>
+					<p class="muted" style="font-size:0.48em; margin-top:0.3em">
+						Las dos últimas no compiten con las anteriores: van debajo. Y la licencia gratis
+						no incluye el equipo que la mantiene.
+					</p>
+				</section>
+
+				<!-- 33 · Cuándo tiene sentido -->
+				<section>
+					<h2>Cuándo tiene sentido montar un portal</h2>
+					<ul style="font-size:0.58em">
+						<li><strong>Opacidad del inventario.</strong> No hay respuesta confiable a cuántos servicios hay y quién los opera</li>
+						<li><strong>Onboarding lento.</strong> Semanas, y siempre con alguien de antigüedad al lado</li>
+						<li><strong>Conocimiento tribal.</strong> "¿A quién le pregunto por este servicio?", varias veces por semana</li>
+						<li><strong>Auditoría manual.</strong> Cada auditoría cuesta lo mismo que la anterior</li>
+						<li><strong>Saturación de memoria.</strong> Más servicios de los que una persona puede sostener</li>
+					</ul>
+					<div class="ct-objective">
+						<span>Y el reverso</span>
+						Si cada servicio se despliega distinto y la infraestructura se crea a mano, el
+						portal refleja ese desorden con mejor diseño. <strong>Primero se estandariza un
+						camino.</strong>
+					</div>
+				</section>
+
+				<!-- 33b · La evidencia en contra -->
+				<section class="dense">
+					<h2>La evidencia en contra</h2>
+					<div class="dd-quote">
+						<div class="en">
+							"Utilizing an internal developer platform improves individual productivity,
+							team performance, and overall organizational performance. However, it can
+							also lead to decreased change stability and throughput."
+						</div>
+						<div class="es">
+							"Usar una plataforma interna mejora la productividad individual, el
+							desempeño del equipo y el organizacional. Sin embargo, también puede
+							llevar a menor estabilidad de los cambios y menor rendimiento de entrega."
+						</div>
+						<div class="src">DORA — State of DevOps 2024</div>
+					</div>
+					<table class="tight" style="margin-top:0.3em">
+						<tr><th>Mecanismo</th><th>Qué produce</th></tr>
+						<tr><td>Capas de aprobación</td><td>Cada control agrega espera, y la espera agranda el lote</td></tr>
+						<tr><td>Entregas por lotes</td><td>Se vuelve a desplegar de a mucho y cada tanto</td></tr>
+						<tr><td>Estructuras rígidas</td><td>Todo caso que no encaja se negocia. La cola vuelve</td></tr>
+					</table>
+					<p style="font-size:0.5em; margin-top:0.3em">
+						<strong>Un punto único por el que pasa todo es el lugar más cómodo para poner
+						controles.</strong>
+					</p>
+				</section>
+
+				<!-- 33c · Autoservicio real -->
+				<section>
+					<h2>Autoservicio real, o ticket con otra cara</h2>
+					<table>
+						<tr><th>Pregunta</th><th>Autoservicio real</th><th>Ticket con otra cara</th></tr>
+						<tr><td>¿Qué pasa al apretar el botón?</td><td>La capacidad se aprovisiona</td><td>Alguien recibe una notificación</td></tr>
+						<tr><td>¿Cuánto tardo en saber?</td><td>Minutos, con estado visible</td><td>Depende de cuándo lo miren</td></tr>
+						<tr><td>¿Necesito saber a quién le llega?</td><td>No. No le llega a nadie</td><td>Sí, y conviene conocerlo</td></tr>
+						<tr><td>Si sale mal, ¿lo reintento?</td><td>Sí, con la misma interfaz</td><td>Hay que pedir otra cosa</td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>El matiz</span>
+						Lo que la evidencia castiga no es la aprobación: es la
+						<strong>aprobación por defecto</strong>. Va donde el blast radius la justifica,
+						y en ningún otro lado.
+					</div>
+				</section>
+
+				<!-- ============ ESTANDARIZACIÓN ============ -->
+				<section class="divider on-dark" data-background-color="#1D419F">
+					<div class="kicker">Bloque 5 · la tesis de la clase</div>
+					<h1>Estandarización</h1>
+					<p class="muted" style="font-size:0.6em; margin-top:0.5em">
+						Va antes que la herramienta, y el orden es deliberado
+					</p>
+				</section>
+
+				<!-- 34 · Qué significa estandarizar -->
+				<section>
+					<h2>Qué significa estandarizar</h2>
+					<p style="font-size:0.66em">
+						No que todos usen el mismo lenguaje ni la misma base de datos. Que
+						<strong>las decisiones que no diferencian al producto se toman una vez y se
+						reutilizan</strong>.
+					</p>
+					<table>
+						<tr><th>Nivel</th><th>Ejemplo</th></tr>
+						<tr><td>Nomenclatura</td><td>Un servicio se llama igual en todos lados</td></tr>
+						<tr><td>Modelo de datos</td><td>"Servicio", "proyecto", "cliente" significan lo mismo para todos</td></tr>
+						<tr><td>Procesos</td><td>Qué pasos tiene una operación común y cuándo termina</td></tr>
+						<tr><td>Estructura</td><td>Todo repositorio tiene README, runbook y SLO</td></tr>
+						<tr><td>Propiedad</td><td>Cada servicio tiene equipo dueño y contacto de guardia</td></tr>
+						<tr><td>Niveles</td><td>Qué significa "listo para producción"</td></tr>
+					</table>
+				</section>
+
+				<!-- 35 · La nomenclatura -->
+				<section>
+					<h2>Nomenclatura: el nivel que habilita el resto</h2>
+					<pre style="font-size:0.44em; line-height:1.5; box-shadow:none; background:#EAF5F7; border-radius:10px; padding:0.9em"><code class="plaintext nohighlight">                    payments-api
+                         │
+   ┌────────────┬────────┼────────┬──────────────┐
+repositorio  registro  servicio  descubrimiento  ruta
+              de       del                       de la
+             imágenes  clúster                    API</code></pre>
+					<div class="ct-objective">
+						<span>La consecuencia</span>
+						Si todo se deriva de un nombre, <strong>nada puede desincronizarse</strong>. No
+						hay un segundo lugar donde alguien lo escriba mal. Y al revés: dado un recurso
+						cualquiera, se reconstruye a qué servicio pertenece sin preguntarle a nadie.
+					</div>
+				</section>
+
+				<!-- 36 · Proceso cerrado -->
+				<section>
+					<h2>Proceso cerrado</h2>
+					<table>
+						<tr><th>Proceso abierto</th><th>Proceso cerrado</th></tr>
+						<tr><td>"Se pidió el alta hace unos días"</td><td>La entidad está en <code class="plaintext nohighlight">provisioning</code> desde hace 4 minutos</td></tr>
+						<tr><td>"Creo que ya lo dieron de baja"</td><td>La acción destruyó la infraestructura, borró el repositorio y eliminó la entidad</td></tr>
+						<tr><td>"Hay que preguntar si terminó"</td><td>El pipeline reportó cada paso contra la ejecución</td></tr>
+					</table>
+					<div class="ct-objective">
+						<span>Tres condiciones</span>
+						Inicio definido, final definido y <strong>estado observable en el medio</strong>.
+						El tercero es el que falta casi siempre.
+					</div>
+				</section>
+
+				<!-- 37 · La escalera -->
+				<section>
+					<h2>De estandarizar a automatizar</h2>
+					<div class="ct-cards" style="grid-template-columns:repeat(6,1fr); gap:0.35em">
+						<div class="ct-card"><div class="num">1</div><div class="ct-title">Manual y tribal</div></div>
+						<div class="ct-card"><div class="num">2</div><div class="ct-title">Documentado</div></div>
+						<div class="ct-card"><div class="num">3</div><div class="ct-title">Automatizado</div></div>
+						<div class="ct-card"><div class="num">4</div><div class="ct-title">Autoservicio</div></div>
+						<div class="ct-card"><div class="num">5</div><div class="ct-title">Automático</div></div>
+						<div class="ct-card"><div class="num">6</div><div class="ct-title">Agéntico</div></div>
+					</div>
+					<div class="ct-objective">
+						<span>La regla</span>
+						<strong>Cada escalón necesita que el anterior esté estandarizado.</strong> No se
+						automatiza un proceso cuyos pasos cambian según quién lo ejecute, ni se le
+						delega a un agente una decisión sobre un sistema cuyo estado nadie puede
+						consultar de forma estructurada.
+					</div>
+					<aside class="notes">Esta figura se repite en la slide 42 con el escalón 6 resaltado.</aside>
+				</section>
+
+				<!-- ============ PORT ============ -->
+				<section class="divider on-dark" data-background-color="#1D419F">
+					<div class="kicker">Bloque 6</div>
+					<h1>Port</h1>
+					<p class="muted" style="font-size:0.6em; margin-top:0.5em">
+						Una herramienta, leída por los problemas que resuelve
+					</p>
+				</section>
+
+				<!-- 38 · Port -->
+				<section>
+					<h2>Port</h2>
+					<p style="font-size:0.6em">
+						Portal comercial en modalidad SaaS. Desde 2026 se presenta como
+						<em class="accent">agentic engineering platform</em>, con el catálogo renombrado
+						a <strong>Context Lake</strong>.
+					</p>
+					<div class="dd-shot">FIGURA 7.1 — pantalla de inicio de la organización de demostración, con el menú lateral visible</div>
+					<p class="dd-source">docs.port.io</p>
+				</section>
+
+				<!-- 39 · Features leídas como problemas -->
+				<section class="dense">
+					<h2>Features, leídas como problemas</h2>
+					<table>
+						<tr><th>Problema</th><th>Feature</th></tr>
+						<tr><td>El catálogo modela lo que las herramientas exportan, no lo que la empresa piensa</td><td><strong>Blueprints definidos por el usuario</strong></td></tr>
+						<tr><td>El mismo dato se carga en varios lugares y se contradice</td><td><strong>Mirror properties</strong></td></tr>
+						<tr><td>Los datos del catálogo envejecen</td><td>Integraciones, webhooks y API</td></tr>
+						<tr><td>El formulario ofrece opciones que el pipeline no soporta</td><td><strong>Inputs de tipo entidad</strong></td></tr>
+						<tr><td>Las políticas están escritas y nadie sabe quién las cumple</td><td><strong>Scorecards por niveles</strong></td></tr>
+						<tr><td>En una consultora, un cliente no puede ver a otro</td><td>RBAC por equipo y por blueprint</td></tr>
+					</table>
+					<p class="muted" style="font-size:0.48em; margin-top:0.3em">
+						No se leen todas: se desarrollan cuatro.
+					</p>
+				</section>
+
+				<!-- 40 · Tres primitivas -->
+				<section>
+					<h2>Tres primitivas</h2>
+					<div class="dd-two wide-left">
+						<table>
+							<tr><th>Primitiva</th><th>Qué es</th><th>Analogía</th></tr>
+							<tr><td><strong>Blueprint</strong></td><td>Definición de un tipo</td><td>Clase, o tabla</td></tr>
+							<tr><td><strong>Entidad</strong></td><td>Instancia concreta</td><td>Objeto, o fila</td></tr>
+							<tr><td><strong>Relación</strong></td><td>Vínculo tipado</td><td>Clave foránea</td></tr>
+						</table>
+						<div class="dd-shot">FIGURA 7.2 — el grafo del modelo de datos</div>
+					</div>
+					<p class="dd-source">docs.port.io/context-lake/data-model</p>
+				</section>
+
+				<!-- 41 · Mirror property -->
+				<section>
+					<h2>Mirror property</h2>
+					<pre style="font-size:0.44em; line-height:1.5; box-shadow:none; background:#EAF5F7; border-radius:10px; padding:0.9em"><code class="plaintext nohighlight">servicio ──────&gt; proyecto ──────&gt; cliente
+    ▲                                  │
+    └──────── el valor se lee ─────────┘</code></pre>
+					<div class="ct-objective">
+						<span>Por qué importa</span>
+						El nombre del cliente <strong>se escribe en un solo lugar</strong>. Dos
+						servicios del mismo cliente no pueden discrepar.
+					</div>
+					<div class="dd-shot" style="margin-top:0.4em">FIGURA 7.3 — página de un servicio, con las propiedades mirror señaladas</div>
+					<p class="dd-source">docs.port.io — mirror-property</p>
+				</section>
+
+				<!-- 41b · Acción y scorecard en el producto -->
+				<section>
+					<h2>Acción y scorecard, en el producto</h2>
+					<div class="dd-two">
+						<div class="dd-shot" style="min-height:2.6em">FIGURA 7.4 — el formulario con una lista desplegable abierta, y la página de ejecución</div>
+						<div class="dd-shot" style="min-height:2.6em">FIGURA 7.5 — la torta por nivel, y las reglas incumplidas de un servicio</div>
+					</div>
+					<p style="font-size:0.56em; margin-top:0.5em">
+						Es la antesala de la demostración: lo que van a ver en vivo, primero quieto.
+					</p>
+				</section>
+
+				<!-- ============ ERA AGÉNTICA ============ -->
+				<section class="divider on-dark" data-background-color="#1D419F">
+					<div class="kicker">Bloque 7</div>
+					<h1>Era agéntica</h1>
+					<p class="muted" style="font-size:0.6em; margin-top:0.5em">
+						El escalón 6, y por qué depende de los cinco anteriores
+					</p>
+				</section>
+
+				<!-- 42 · La escalera, otra vez -->
+				<section>
+					<h2>La escalera, otra vez</h2>
+					<div class="ct-cards" style="grid-template-columns:repeat(6,1fr); gap:0.35em">
+						<div class="ct-card" style="opacity:0.45"><div class="num">1</div><div class="ct-title">Manual</div></div>
+						<div class="ct-card" style="opacity:0.45"><div class="num">2</div><div class="ct-title">Documentado</div></div>
+						<div class="ct-card" style="opacity:0.45"><div class="num">3</div><div class="ct-title">Automatizado</div></div>
+						<div class="ct-card" style="opacity:0.45"><div class="num">4</div><div class="ct-title">Autoservicio</div></div>
+						<div class="ct-card" style="opacity:0.45"><div class="num">5</div><div class="ct-title">Automático</div></div>
+						<div class="ct-card" style="border-color:var(--dd-blue); border-width:2px; background:#fff"><div class="num">6</div><div class="ct-title">Agéntico</div></div>
+					</div>
+					<p style="font-size:0.62em; margin-top:0.7em">
+						Acá estamos ahora. Y este escalón <strong>necesita los cinco anteriores</strong>.
+					</p>
+				</section>
+
+				<!-- 43 · Por qué un agente necesita contexto -->
+				<section>
+					<h2>Por qué un agente necesita contexto</h2>
+					<div class="dd-quote">
+						<div class="en">
+							"when AI is introduced to your engineering environments without context,
+							such as knowledge about your application architecture, dependencies, or
+							ownership teams, it can't act safely."
+						</div>
+						<div class="es">
+							"cuando se introduce IA en los entornos de ingeniería sin contexto —sin
+							conocimiento de la arquitectura, sus dependencias o los equipos que la
+							poseen— no puede actuar de forma segura."
+						</div>
+						<div class="src">Zohar Einy, port.io, 2025</div>
+					</div>
+					<div class="ct-objective">
+						<span>La conclusión</span>
+						Una empresa con la plataforma implícita <strong>no tiene nada que darle a un
+						agente</strong>. Un catálogo estandarizado y poblado automáticamente, sí.
+					</div>
+					<p class="dd-source">
+						MCP es un estándar abierto, alojado en la Agentic AI Foundation de la Linux
+						Foundation desde diciembre de 2025 — modelcontextprotocol.io
+					</p>
+				</section>
+
+				<!-- 44 · Guardrails y nota personal -->
+				<section class="dense">
+					<h2>Guardrails</h2>
+					<p style="font-size:0.58em">
+						Una acción de autoservicio tiene esquema validado, permisos, backend fijo y
+						traza. Darle eso a un agente no es lo mismo que darle una credencial de
+						administrador. <strong>El mecanismo que se construyó para que una persona no
+						abriera un ticket es el que impide que un agente haga cualquier cosa.</strong>
+					</p>
+					<p class="muted" style="font-size:0.5em">
+						No es opinión de proveedores: OWASP Top 10 for Agentic Applications, OWASP LLM
+						Top 10 (<em>Excessive Agency</em>), NIST AI RMF, y las security best practices
+						del propio MCP.
+					</p>
+					<div class="ct-objective" style="border-left-color:var(--dd-red)">
+						<span style="color:var(--dd-red)">Nota personal</span>
+						No uso el dato del 95% de pilotos de IA fracasados: no lo puedo verificar, y un
+						dato que no puedo defender no me sirve. Lo que sostengo es más modesto y más
+						sólido — <strong>la estandarización que hace falta para automatizar es la misma
+						que hace falta para incorporar agentes.</strong>
+					</div>
+				</section>
+
+				<!-- ============ DEMOSTRACIÓN ============ -->
+				<section class="on-dark" data-background-color="#4A86E6">
+					<img
+						src="assets/infinito-white.png"
+						style="position:absolute; right:-60px; top:-30px; width:220px; opacity:0.28"
+						alt=""
+					/>
+					<h2 style="color:#fff">Un golden path funcionando</h2>
+					<p style="font-size:0.6em">
+						Organización aislada, datos ficticios, infraestructura real en una cuenta de
+						laboratorio. Seis minutos desde el formulario hasta un servicio respondiendo.
+					</p>
+					<div class="ct-cards" style="grid-template-columns:repeat(4,1fr)">
+						<div class="ct-card"><div class="num">1</div><div class="ct-title">Modelo de datos</div></div>
+						<div class="ct-card"><div class="num">2</div><div class="ct-title">Catálogo y trazabilidad</div></div>
+						<div class="ct-card"><div class="num">3</div><div class="ct-title">Acción de autoservicio</div></div>
+						<div class="ct-card"><div class="num">4</div><div class="ct-title">Scorecard</div></div>
+					</div>
+					<aside class="notes">
+						Después de esta slide se pasa al navegador. Si la demo en vivo falla, usar la
+						slide gemela con el video de respaldo — no depurar en vivo.
+					</aside>
+				</section>
+
+				<!-- 46 · Qué queda -->
+				<section>
+					<h2>Qué queda</h2>
+					<ul class="done" style="font-size:0.6em">
+						<li>Sé explicar qué resolvió DevOps y qué problema nuevo produjo</li>
+						<li>Distingo una Internal Developer <strong>Platform</strong> de un Internal Developer <strong>Portal</strong></li>
+						<li>Puedo reconocer la plataforma implícita de una organización y mapearla a los cinco planos</li>
+						<li>Sé argumentar cuándo un portal tiene sentido y cuándo conviene estandarizar primero</li>
+						<li>Puedo explicar por qué la estandarización es prerrequisito de la automatización y de operar con agentes</li>
+					</ul>
+					<div class="ct-objective">
+						<span>Para pensar</span>
+						Si mañana entran a una empresa que no tiene nada de esto, ¿por dónde empiezan:
+						por el catálogo o por el golden path?
+					</div>
+				</section>
+
+				<!-- 47 · Para seguir -->
+				<section class="on-dark" data-background-color="#4A86E6">
+					<h1 class="accented" style="font-size:1.5em; color:#fff">Para seguir</h1>
+					<div class="ct-cards" style="grid-template-columns:repeat(4,1fr)">
+						<div class="ct-card"><div class="num">Apunte</div><div class="ct-title">El material completo de la clase</div></div>
+						<div class="ct-card"><div class="num">CNCF</div><div class="ct-title">Platforms White Paper</div></div>
+						<div class="ct-card"><div class="num">Backstage</div><div class="ct-title">demo.backstage.io — navegable, sin registro</div></div>
+						<div class="ct-card"><div class="num">2009</div><div class="ct-title">10+ Deploys per Day, la charla fundacional</div></div>
+					</div>
+					<p class="tagline" style="margin-top:0.9em">
+						[nombre] — Craftech · [contacto]
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<!-- pie institucional, presente en todas las slides -->
+		<div class="dd-footer">
+			<img class="wordmark dark" src="assets/diplodevops-wordmark-navy.png" alt="#DiploDevOps" />
+			<img class="wordmark light" src="assets/diplodevops-wordmark-white.png" alt="#DiploDevOps" />
+			<img class="inst dark" src="assets/institucional-navy.png" alt="Craftech · UNC · FCEFyN · Secretaría de Extensión" />
+			<img class="inst light" src="assets/institucional-white.png" alt="Craftech · UNC · FCEFyN · Secretaría de Extensión" />
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="dist/plugin/notes.js"></script>
+		<script src="dist/plugin/markdown.js"></script>
+		<script src="dist/plugin/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+				progress: false,
+				slideNumber: "c/t",
+				center: false,
+				transition: "slide",
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			});
+
+			// el pie alterna entre azul y blanco según el fondo de la slide
+			function syncFooter() {
+				var s = Reveal.getCurrentSlide();
+				document.body.classList.toggle(
+					"on-dark",
+					!!(s && s.classList.contains("on-dark"))
+				);
+			}
+			Reveal.on("ready", syncFooter);
+			Reveal.on("slidechanged", syncFooter);
+		</script>
+	</body>
+</html>

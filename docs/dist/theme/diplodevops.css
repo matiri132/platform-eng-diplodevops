@@ -1,0 +1,608 @@
+/**
+ * DiploDevOps theme for reveal.js
+ * Paleta y tipografía tomadas del deck institucional de la diplomatura
+ * (UNC · FCEFyN · Secretaría de Extensión · Craftech), archivo "Clase 2.pptx".
+ *
+ *   azul primario   #4A86E6   títulos, acentos, portada
+ *   azul profundo   #1D419F   separadores de sección, logos sobre claro
+ *   panel           #EAF5F7   fondo de bloques y tarjetas
+ *   tinta           #212121   texto
+ *   verde / rojo    #188038 / #EB5757   estados
+ *
+ * Mismo vocabulario de clases que el tema Craftech: title-slide, eyebrow,
+ * ct-cards, ct-card, num, ct-title, status, tentative, ct-objective,
+ * ct-confirm-tag, ct-future-tag, muted, small, done, proposals.
+ * Difiere el fondo: la diplomatura usa slides claras con títulos azules.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto+Mono:wght@400;500&display=swap");
+
+:root {
+	--dd-blue: #4a86e6;
+	--dd-blue-deep: #1d419f;
+	--dd-ink: #0e1426;
+	--dd-panel: #eaf5f7;
+	--dd-text: #212121;
+	--dd-muted: #5b6b7a;
+	--dd-line: rgba(74, 134, 230, 0.28);
+	--dd-green: #188038;
+	--dd-red: #eb5757;
+	--dd-amber: #ffab40;
+	--dd-teal: #0097a7;
+
+	--r-background-color: #ffffff;
+	--r-main-font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--r-main-font-size: 38px;
+	--r-main-color: var(--dd-text);
+	--r-heading-font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--r-heading-color: var(--dd-blue);
+	--r-heading-line-height: 1.15;
+	--r-heading-letter-spacing: -0.01em;
+	--r-heading-text-transform: none;
+	--r-heading-font-weight: 700;
+	--r-heading1-size: 2.1em;
+	--r-heading2-size: 1.42em;
+	--r-heading3-size: 1.1em;
+	--r-code-font: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+	--r-link-color: var(--dd-blue-deep);
+	--r-link-color-hover: var(--dd-blue);
+	--r-selection-background-color: var(--dd-blue);
+	--r-selection-color: #fff;
+}
+
+.reveal-viewport {
+	background: #ffffff;
+}
+
+.reveal {
+	font-family: var(--r-main-font);
+	font-size: var(--r-main-font-size);
+	font-weight: 400;
+	color: var(--dd-text);
+}
+
+.reveal .slides {
+	text-align: left;
+}
+.reveal .slides section {
+	line-height: 1.32;
+}
+
+/* ---------- headings ---------- */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+	font-family: var(--r-heading-font);
+	color: var(--r-heading-color);
+	font-weight: 700;
+	letter-spacing: var(--r-heading-letter-spacing);
+	margin: 0 0 0.4em 0;
+	text-transform: none;
+}
+.reveal h2 {
+	font-size: var(--r-heading2-size);
+}
+.reveal h3 {
+	font-size: var(--r-heading3-size);
+	color: var(--dd-blue-deep);
+}
+
+/* regla de acento debajo del título, como en el tema Craftech */
+.reveal h2::after,
+.reveal h1.accented::after {
+	content: "";
+	display: block;
+	width: 84px;
+	height: 5px;
+	margin-top: 0.3em;
+	border-radius: 4px;
+	background: linear-gradient(90deg, var(--dd-blue), var(--dd-blue-deep));
+}
+
+.reveal a {
+	color: var(--r-link-color);
+	text-decoration: none;
+	border-bottom: 1px solid var(--dd-line);
+}
+.reveal a:hover {
+	color: var(--r-link-color-hover);
+}
+.reveal strong,
+.reveal b {
+	color: var(--dd-blue-deep);
+	font-weight: 600;
+}
+.reveal em.accent {
+	color: var(--dd-blue);
+	font-style: normal;
+	font-weight: 600;
+}
+.reveal .muted {
+	color: var(--dd-muted);
+}
+.reveal .small {
+	font-size: 0.7em;
+}
+.reveal .xsmall {
+	font-size: 0.56em;
+}
+
+/* ---------- listas ---------- */
+.reveal ul {
+	list-style: none;
+	margin-left: 0;
+}
+.reveal ul li {
+	position: relative;
+	padding-left: 1.3em;
+	margin: 0.42em 0;
+}
+.reveal ul li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.55em;
+	width: 0.45em;
+	height: 0.45em;
+	border-radius: 2px;
+	background: var(--dd-blue);
+}
+.reveal ul.done li::before {
+	content: "✓";
+	background: transparent;
+	color: var(--dd-green);
+	font-weight: 700;
+	top: 0.02em;
+	width: auto;
+	height: auto;
+	font-size: 0.95em;
+}
+.reveal ol {
+	margin-left: 1em;
+}
+
+/* ---------- código ---------- */
+.reveal code {
+	font-family: var(--r-code-font);
+	background: var(--dd-panel);
+	color: var(--dd-blue-deep);
+	padding: 0.05em 0.3em;
+	border-radius: 4px;
+	font-size: 0.9em;
+}
+
+/* ---------- tablas ---------- */
+.reveal table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 0.62em;
+	margin-top: 0.3em;
+}
+.reveal table th {
+	text-align: left;
+	color: var(--dd-blue-deep);
+	font-weight: 600;
+	border-bottom: 2px solid var(--dd-blue);
+	padding: 0.35em 0.5em;
+}
+.reveal table td {
+	border-bottom: 1px solid #e3e9ee;
+	padding: 0.35em 0.5em;
+	vertical-align: top;
+}
+.reveal table tr:last-child td {
+	border-bottom: none;
+}
+.reveal table.tight {
+	font-size: 0.5em;
+}
+
+/* ---------- portada ---------- */
+.reveal .title-slide {
+	text-align: left;
+}
+.reveal .title-slide .eyebrow {
+	color: rgba(255, 255, 255, 0.85);
+	text-transform: uppercase;
+	letter-spacing: 0.22em;
+	font-size: 0.46em;
+	font-weight: 600;
+	margin-bottom: 0.5em;
+}
+.reveal .title-slide h1 {
+	font-size: 2.1em;
+	line-height: 1.05;
+	color: #ffffff;
+}
+.reveal .title-slide .tagline {
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 0.56em;
+	margin-top: 0.9em;
+}
+
+/* slides sobre fondo azul u oscuro */
+.reveal section.on-dark,
+.reveal section.on-dark h1,
+.reveal section.on-dark h2,
+.reveal section.on-dark h3,
+.reveal section.on-dark p,
+.reveal section.on-dark li,
+.reveal section.on-dark td,
+.reveal section.on-dark th {
+	color: #ffffff;
+}
+.reveal section.on-dark strong,
+.reveal section.on-dark b {
+	color: #ffffff;
+}
+.reveal section.on-dark .muted {
+	color: rgba(255, 255, 255, 0.72);
+}
+.reveal section.on-dark em.accent {
+	color: #b9d4ff;
+}
+.reveal section.on-dark h2::after,
+.reveal section.on-dark h1.accented::after {
+	background: #ffffff;
+}
+.reveal section.on-dark ul li::before {
+	background: #ffffff;
+}
+.reveal section.on-dark code {
+	background: rgba(255, 255, 255, 0.14);
+	color: #ffffff;
+}
+.reveal section.on-dark table th {
+	color: #ffffff;
+	border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+.reveal section.on-dark table td {
+	border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- separador de sección ---------- */
+.reveal section.divider .kicker {
+	color: rgba(255, 255, 255, 0.8);
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-size: 0.45em;
+	font-weight: 600;
+	margin-bottom: 0.3em;
+}
+.reveal section.divider h1 {
+	font-size: 1.7em;
+	color: #ffffff;
+	margin-bottom: 0.2em;
+}
+.reveal section.divider h1::after {
+	content: "";
+	display: block;
+	width: 120px;
+	height: 5px;
+	margin-top: 0.3em;
+	border-radius: 4px;
+	background: #ffffff;
+}
+
+/* ---------- frase única a pantalla completa ---------- */
+.reveal section.statement {
+	display: flex !important;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+.reveal section.statement p.big {
+	font-size: 1.25em;
+	font-weight: 600;
+	line-height: 1.25;
+	color: var(--dd-blue-deep);
+	margin: 0;
+}
+.reveal section.statement.on-dark p.big {
+	color: #ffffff;
+}
+.reveal section.statement p.sub {
+	font-size: 0.62em;
+	margin-top: 0.7em;
+	color: var(--dd-muted);
+}
+
+/* ---------- tarjetas ---------- */
+.ct-cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.6em;
+	margin-top: 0.5em;
+}
+.ct-card {
+	background: var(--dd-panel);
+	border: 1px solid var(--dd-line);
+	border-radius: 12px;
+	padding: 0.65em 0.7em;
+}
+.ct-card .num {
+	color: var(--dd-blue);
+	font-weight: 700;
+	font-size: 0.55em;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.ct-card .ct-title {
+	color: var(--dd-blue-deep);
+	font-weight: 600;
+	font-size: 0.62em;
+	margin: 0.22em 0 0.3em;
+	line-height: 1.2;
+}
+.ct-card p {
+	font-size: 0.5em;
+	line-height: 1.3;
+	margin: 0;
+	color: var(--dd-text);
+}
+.ct-card ul {
+	margin: 0;
+}
+.ct-card ul li {
+	font-size: 0.5em;
+	margin: 0.2em 0;
+}
+.ct-card .status {
+	display: inline-block;
+	font-size: 0.42em;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #ffffff;
+	background: var(--dd-blue);
+	border-radius: 20px;
+	padding: 0.25em 0.8em;
+}
+.ct-card.tentative {
+	background: #fff;
+	border: 1px dashed var(--dd-red);
+}
+.ct-confirm-tag {
+	display: inline-block;
+	font-size: 0.42em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--dd-red);
+	border: 1px solid var(--dd-red);
+	border-radius: 20px;
+	padding: 0.22em 0.75em;
+}
+.ct-future-tag {
+	display: inline-block;
+	font-size: 0.42em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #ffffff;
+	background: var(--dd-amber);
+	border-radius: 20px;
+	padding: 0.25em 0.9em;
+	margin-bottom: 0.4em;
+}
+.reveal section.on-dark .ct-card {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.28);
+}
+.reveal section.on-dark .ct-card .num {
+	color: #b9d4ff;
+}
+.reveal section.on-dark .ct-card .ct-title,
+.reveal section.on-dark .ct-card p {
+	color: #ffffff;
+}
+
+/* ---------- callout ---------- */
+.ct-objective {
+	border-left: 5px solid var(--dd-blue);
+	background: var(--dd-panel);
+	padding: 0.5em 0.8em;
+	border-radius: 0 10px 10px 0;
+	font-size: 0.62em;
+	margin-top: 0.6em;
+}
+.ct-objective span {
+	display: block;
+	color: var(--dd-blue);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 0.72em;
+	font-weight: 700;
+	margin-bottom: 0.15em;
+}
+.reveal section.on-dark .ct-objective {
+	background: rgba(255, 255, 255, 0.12);
+	border-left-color: #ffffff;
+}
+.reveal section.on-dark .ct-objective span {
+	color: #ffffff;
+}
+
+/* cita con traducción */
+.dd-quote {
+	border-left: 5px solid var(--dd-blue);
+	padding: 0.35em 0 0.35em 0.8em;
+	margin: 0.5em 0;
+}
+.dd-quote .en {
+	font-size: 0.62em;
+	font-style: italic;
+	color: var(--dd-text);
+}
+.dd-quote .es {
+	font-size: 0.55em;
+	color: var(--dd-muted);
+	margin-top: 0.35em;
+}
+.dd-quote .src {
+	font-size: 0.45em;
+	color: var(--dd-muted);
+	margin-top: 0.3em;
+}
+.reveal section.on-dark .dd-quote {
+	border-left-color: #ffffff;
+}
+.reveal section.on-dark .dd-quote .en {
+	color: #ffffff;
+}
+.reveal section.on-dark .dd-quote .es,
+.reveal section.on-dark .dd-quote .src {
+	color: rgba(255, 255, 255, 0.78);
+}
+
+/* dos columnas */
+.dd-two {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.9em;
+	align-items: start;
+}
+.dd-two.wide-left {
+	grid-template-columns: 1.4fr 1fr;
+}
+.dd-panel {
+	background: var(--dd-panel);
+	border-radius: 12px;
+	padding: 0.6em 0.75em;
+	font-size: 0.6em;
+}
+.reveal section.on-dark .dd-panel {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+/* fuente al pie de una slide: en flujo, para que nunca pise el contenido */
+.reveal .dd-source,
+.reveal section.dense .dd-source {
+	font-size: 0.36em;
+	color: var(--dd-muted);
+	margin-top: 0.9em;
+}
+.reveal section.on-dark .dd-source {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* espacio para captura pendiente */
+.dd-shot {
+	border: 2px dashed var(--dd-line);
+	border-radius: 12px;
+	background: var(--dd-panel);
+	color: var(--dd-muted);
+	font-size: 0.46em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 1em;
+	min-height: 3.2em;
+}
+
+/* ---------- pie institucional, en todas las slides ---------- */
+.dd-footer {
+	position: absolute;
+	bottom: 12px;
+	left: 0;
+	right: 0;
+	height: 26px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 26px;
+	pointer-events: none;
+	z-index: 40;
+}
+.dd-footer img.wordmark {
+	height: 15px;
+}
+.dd-footer img.inst {
+	height: 17px;
+}
+.dd-footer .light {
+	display: none;
+}
+body.on-dark .dd-footer .light {
+	display: block;
+}
+body.on-dark .dd-footer .dark {
+	display: none;
+}
+
+/* compacta las slides densas, como section.proposals en el tema Craftech */
+.reveal section.dense h2 {
+	font-size: 1.12em;
+	margin-bottom: 0.2em;
+}
+.reveal section.dense h2::after {
+	width: 60px;
+	height: 4px;
+	margin-top: 0.2em;
+}
+.reveal section.dense table {
+	font-size: 0.5em;
+}
+.reveal section.dense p,
+.reveal section.dense li {
+	font-size: 0.56em;
+}
+.reveal section.dense .ct-card .ct-title {
+	font-size: 0.5em;
+}
+.reveal section.dense .ct-objective {
+	font-size: 0.52em;
+}
+
+
+/* ---------- ajustes de compaginación ---------- */
+
+/* el contenido arranca arriba, como en el deck institucional */
+.reveal .slides section {
+	padding-top: 1.2em;
+}
+.reveal .slides section.title-slide,
+.reveal .slides section.divider,
+.reveal .slides section.statement {
+	display: flex !important;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	padding-top: 0;
+}
+
+/* el número de slide no puede pisar la franja institucional */
+.reveal .slide-number {
+	background: transparent;
+	color: var(--dd-muted);
+	font-family: var(--r-main-font);
+	font-size: 13px;
+	right: 26px;
+	bottom: 46px;
+}
+body.on-dark .reveal .slide-number {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+/* bloques de diagrama ASCII: sin resaltado de sintaxis */
+.reveal pre {
+	box-shadow: none;
+	width: 100%;
+	margin: 0.4em 0;
+}
+.reveal pre code.plaintext,
+.reveal pre code.nohighlight {
+	background: var(--dd-panel);
+	color: var(--dd-blue-deep);
+	border-radius: 10px;
+	padding: 0.9em 1em;
+	display: block;
+	max-height: none;
+}
+.reveal section.on-dark pre code.plaintext,
+.reveal section.on-dark pre code.nohighlight {
+	background: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+}

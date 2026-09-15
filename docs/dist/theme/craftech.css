@@ -1,0 +1,322 @@
+/**
+ * Craftech theme for reveal.js
+ * Paleta tomada de la identidad de craftech.io
+ *   navy primario  #004D71
+ *   cyan acento    #00C0C7
+ *   coral acento   #FF614E
+ * Fondo oscuro corporativo.
+ */
+
+:root {
+	--ct-navy: #004d71;
+	--ct-navy-deep: #002a3f;
+	--ct-cyan: #00c0c7;
+	--ct-coral: #ff614e;
+	--ct-ink: #04141d;
+	--ct-text: #eaf2f6;
+	--ct-muted: #8fa9b6;
+	--ct-line: rgba(0, 192, 199, 0.25);
+
+	--r-background-color: var(--ct-ink);
+	--r-main-font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--r-main-font-size: 38px;
+	--r-main-color: var(--ct-text);
+	--r-heading-font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--r-heading-color: #ffffff;
+	--r-heading-line-height: 1.15;
+	--r-heading-letter-spacing: -0.01em;
+	--r-heading-text-transform: none;
+	--r-heading-font-weight: 700;
+	--r-heading1-size: 2.1em;
+	--r-heading2-size: 1.5em;
+	--r-heading3-size: 1.15em;
+	--r-link-color: var(--ct-cyan);
+	--r-link-color-hover: #5fe3e8;
+	--r-selection-background-color: var(--ct-coral);
+	--r-selection-color: #fff;
+}
+
+.reveal-viewport {
+	background: radial-gradient(circle at 22% 12%, #0a2434 0%, var(--ct-ink) 60%);
+}
+
+.reveal {
+	font-family: var(--r-main-font);
+	font-size: var(--r-main-font-size);
+	font-weight: 400;
+	color: var(--ct-text);
+}
+
+.reveal .slides {
+	text-align: left;
+}
+
+.reveal .slides section {
+	line-height: 1.3;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+	font-family: var(--r-heading-font);
+	color: var(--r-heading-color);
+	font-weight: 700;
+	letter-spacing: var(--r-heading-letter-spacing);
+	margin: 0 0 0.4em 0;
+}
+
+.reveal h2 {
+	font-size: var(--r-heading2-size);
+}
+
+/* accent rule under headings */
+.reveal h2::after,
+.reveal h1.accented::after {
+	content: "";
+	display: block;
+	width: 84px;
+	height: 5px;
+	margin-top: 0.35em;
+	border-radius: 4px;
+	background: linear-gradient(90deg, var(--ct-cyan), var(--ct-coral));
+}
+
+.reveal a {
+	color: var(--r-link-color);
+	text-decoration: none;
+}
+.reveal a:hover {
+	color: var(--r-link-color-hover);
+}
+
+.reveal strong,
+.reveal b {
+	color: #ffffff;
+}
+
+.reveal em.cyan {
+	color: var(--ct-cyan);
+	font-style: normal;
+}
+
+/* lists */
+.reveal ul {
+	list-style: none;
+	margin-left: 0;
+}
+.reveal ul li {
+	position: relative;
+	padding-left: 1.4em;
+	margin: 0.5em 0;
+}
+.reveal ul li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.55em;
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 2px;
+	background: var(--ct-cyan);
+}
+
+/* done items get a check instead of bullet */
+.reveal ul.done li::before {
+	content: "✓";
+	background: transparent;
+	color: var(--ct-cyan);
+	font-weight: 700;
+	top: 0.05em;
+	width: auto;
+	height: auto;
+	font-size: 0.95em;
+}
+
+.reveal .muted {
+	color: var(--ct-muted);
+}
+
+.reveal .small {
+	font-size: 0.7em;
+}
+
+/* ---------- brand wordmark ---------- */
+.ct-wordmark {
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	color: #ffffff;
+}
+.ct-wordmark .dot {
+	color: var(--ct-cyan);
+}
+
+/* ---------- title slide ---------- */
+.reveal .title-slide {
+	text-align: left;
+}
+.reveal .title-slide .eyebrow {
+	color: var(--ct-cyan);
+	text-transform: uppercase;
+	letter-spacing: 0.22em;
+	font-size: 0.5em;
+	font-weight: 600;
+	margin-bottom: 0.4em;
+}
+.reveal .title-slide h1 {
+	font-size: 2.4em;
+	line-height: 1.05;
+}
+.reveal .title-slide .tagline {
+	color: var(--ct-muted);
+	font-size: 0.62em;
+	margin-top: 0.8em;
+	font-style: italic;
+}
+
+/* ---------- pillars / cards ---------- */
+.ct-cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.7em;
+	margin-top: 0.6em;
+}
+.ct-card {
+	background: rgba(0, 77, 113, 0.28);
+	border: 1px solid var(--ct-line);
+	border-radius: 12px;
+	padding: 0.7em 0.75em;
+}
+.ct-card .num {
+	color: var(--ct-cyan);
+	font-weight: 800;
+	font-size: 0.8em;
+	letter-spacing: 0.05em;
+}
+.ct-card .ct-title {
+	color: #fff;
+	font-weight: 700;
+	font-size: 0.72em;
+	margin: 0.25em 0 0.35em;
+	line-height: 1.2;
+}
+.ct-card .status {
+	display: inline-block;
+	font-size: 0.5em;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #04141d;
+	background: var(--ct-cyan);
+	border-radius: 20px;
+	padding: 0.25em 0.8em;
+}
+
+/* compact layout for the 4-proposal slide so nothing overflows */
+.reveal section.proposals h2 {
+	font-size: 1.15em;
+	margin-bottom: 0.15em;
+}
+.reveal section.proposals h2::after {
+	width: 60px;
+	height: 4px;
+	margin-top: 0.2em;
+}
+.reveal section.proposals .ct-card {
+	padding: 0.45em 0.6em;
+	border-radius: 10px;
+}
+.reveal section.proposals .ct-card .num {
+	font-size: 0.55em;
+}
+.reveal section.proposals .ct-card .ct-title {
+	font-size: 0.5em;
+	margin: 0.12em 0 0.2em;
+}
+.reveal section.proposals .ct-card p {
+	font-size: 0.46em;
+	line-height: 1.25;
+}
+.reveal section.proposals .ct-card ul {
+	font-size: 0.46em;
+}
+.reveal section.proposals .ct-card ul li {
+	margin: 0.2em 0;
+	line-height: 1.25;
+	padding-left: 1.1em;
+}
+.reveal section.proposals .ct-card ul li::before {
+	top: 0.4em;
+	width: 0.45em;
+	height: 0.45em;
+}
+
+/* objective callout */
+.ct-objective {
+	border-left: 4px solid var(--ct-cyan);
+	background: rgba(0, 192, 199, 0.07);
+	padding: 0.5em 0.9em;
+	border-radius: 0 10px 10px 0;
+	font-size: 0.72em;
+	color: var(--ct-text);
+	margin: 0 0 0.7em 0;
+}
+.ct-objective span {
+	color: var(--ct-cyan);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-size: 0.78em;
+	display: block;
+	margin-bottom: 0.2em;
+}
+
+/* "a confirmar" badge + tentative card */
+.ct-confirm-tag {
+	display: inline-block;
+	font-size: 0.5em;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--ct-coral);
+	border: 1px solid var(--ct-coral);
+	border-radius: 20px;
+	padding: 0.2em 0.7em;
+}
+.ct-card.tentative {
+	border-style: dashed;
+	border-color: rgba(255, 97, 78, 0.5);
+	background: rgba(255, 97, 78, 0.06);
+}
+
+/* future / proposal accent uses coral */
+.ct-future-tag {
+	display: inline-block;
+	font-size: 0.5em;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #fff;
+	background: var(--ct-coral);
+	border-radius: 20px;
+	padding: 0.25em 0.8em;
+}
+
+.reveal section img {
+	border: none;
+	box-shadow: none;
+}
+
+/* footer brand on every slide */
+.reveal .slide-number {
+	color: var(--ct-muted);
+	background: transparent;
+}
+
+/* progress + controls in brand colors */
+.reveal .progress {
+	color: var(--ct-cyan);
+}
+.reveal .controls {
+	color: var(--ct-cyan);
+}
