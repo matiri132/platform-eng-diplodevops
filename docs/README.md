@@ -4,7 +4,7 @@ Presentación reveal.js de la clase, con la identidad de la diplomatura.
 
 | | |
 |---|---|
-| Slides | 56 de contenido, más 7 separadores de bloque y 1 de reserva oculta |
+| Slides | 54 de contenido —una de reserva, oculta— más 7 separadores de bloque |
 | Tema | `dist/theme/diplodevops.css` |
 | Identidad | Derivada del deck institucional de la diplomatura — ver [`../04-diseno-diplodevops.md`](../04-diseno-diplodevops.md) |
 | Contenido | [`../03-propuesta-slides.md`](../03-propuesta-slides.md) · notas del orador desde [`../02-guia-docente.md`](../02-guia-docente.md) |

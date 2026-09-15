@@ -31,7 +31,7 @@ Esta guía desarrolla la tercera. El apunte cubre lo que se recorta y está marc
 
 | # | Objetivo | Se verifica con |
 |---|---|---|
-| O1 | Explicar qué resolvió DevOps y qué problema nuevo produjo | Pregunta de apertura del bloque 2 |
+| O1 | Explicar qué resolvió DevOps y qué dos problemas nuevos produjo | Las dos preguntas abiertas de B1 y B2 |
 | O2 | Distinguir Internal Developer Platform de Internal Developer Portal | Pregunta directa en el bloque 4 |
 | O3 | Reconocer la plataforma implícita de una organización y mapearla a los cinco planos | Ejercicio de la sección 6.2 |
 | O4 | Argumentar cuándo un portal tiene sentido y cuándo conviene estandarizar primero | Pregunta de cierre |
@@ -46,8 +46,8 @@ Lo que la clase **no** persigue: que sepan configurar Port. Es una clase de conc
 | Bloque | Tema | Minutos | Acumulado | Apunte |
 |---|---|---|---|---|
 | B0 | Apertura | 3 | 3 | — |
-| B1 | DevOps: qué resolvió | 8 | 11 | 1 |
-| B2 | Por qué aparece Platform Engineering | 9 | 20 | 2 |
+| B1 | DevOps: repaso participativo | 5 | 8 | 1 |
+| B2 | Los problemas que vinieron después | 12 | 20 | 1.5 y 2 |
 | B3 | Plataforma implícita | 10 | 30 | 4 |
 | B4 | Portal | 11 | 41 | 5 y 9.2 |
 | B5 | Estandarización | 9 | 50 | 6 |
@@ -58,7 +58,7 @@ Lo que la clase **no** persigue: que sepan configurar Port. Es una clase de conc
 
 Las secciones 3, 4.4, 5.6, 6.4, 8.4, 9.1 y 9.3 del apunte no se dictan: están listadas como lectura en su guía de lectura. Si alguien pregunta por ellas, remitir ahí en lugar de improvisar.
 
-**Puntos de control.** A los 20 minutos hay que estar entrando a B3. A los 41, a B5. Si se llega tarde, el recorte es en este orden: el panorama de herramientas de B4, la prueba de cuatro preguntas del cierre de B4, y el ejercicio de los cinco planos de B3. **B5 no se recorta**: es la tesis de la clase, y va antes que Port justamente para que no quede como apéndice de la herramienta.
+**Puntos de control.** A los 8 minutos hay que estar entrando a B2; a los 20, a B3; a los 41, a B5. El primer control es el más importante: B1 es un repaso y se desborda solo si el docente empieza a explicar lo que el grupo ya sabe. Si se llega tarde, el recorte es en este orden: el panorama de herramientas de B4, la prueba de cuatro preguntas del cierre de B4, y el ejercicio de los cinco planos de B3. **B5 no se recorta**: es la tesis de la clase, y va antes que Port justamente para que no quede como apéndice de la herramienta.
 
 ---
 
@@ -70,51 +70,101 @@ Presentarse, presentar a Craftech como consultora invitada, declarar el encuadre
 
 Anunciar el recorrido en una frase, porque el arco es largo y conviene que sepan dónde están:
 
-> "Vamos a ir de un problema de organización a una herramienta, en ese orden. Primero qué resolvió DevOps y qué rompió. Después por qué apareció Platform Engineering. Después una idea que a muchos clientes les cambia la conversación: que ya tienen una plataforma aunque no la llamen así. Después el portal, que es la interfaz de todo eso. Y antes de mostrarles ninguna herramienta, lo único que de verdad importa: el estándar. La herramienta viene al final, y a propósito."
+> "Vamos a ir de un problema de organización a una herramienta, en ese orden. Arrancamos con dos preguntas: qué vino a resolver DevOps, que ustedes ya cursaron, y qué problemas nuevos creó, que es donde empieza esta clase. Después una idea que a muchos clientes les cambia la conversación: que ya tienen una plataforma aunque no la llamen así. Después el portal, que es la interfaz de todo eso. Y antes de mostrarles ninguna herramienta, lo único que de verdad importa: el estándar. La herramienta viene al final, y a propósito."
 
-### B1 · DevOps (8 min)
+### B1 · DevOps (5 min)
 
-El muro: dos áreas con incentivos opuestos, y el ciclo de despliegues infrecuentes → grandes → riesgosos → infrecuentes. Con esta audiencia conviene dibujarlo como ciclo.
+**Este bloque no explica DevOps. Lo pregunta.** El grupo ya lo cursó; repetirlo gasta el
+tiempo que necesita el resto de la clase y además aburre. Se usa solo para dejar sentado de
+qué problema venimos.
 
-Los dos hechos de 2009: Velocity en junio, DevOpsDays en octubre. Vale contar que Debois vio la charla de Flickr por streaming porque no pudo viajar, y que de esa frustración salió la conferencia que le puso nombre al movimiento. Es anecdótico y se retiene.
+**Abrir con la pregunta, no con la definición.**
 
-Qué resolvió, con evidencia: las cuatro métricas de DORA y el hallazgo de que velocidad y estabilidad no se oponen. Nombrar que detrás hay un estudio de encuesta de más de una década, no una opinión.
+> "¿Qué problema vino a resolver DevOps? Sin apuntes. Tres respuestas y seguimos."
 
-Si sobran dos minutos —solo si sobran—, la **tipología de Westrum** es el mejor rendimiento por segundo de todo el bloque, y aterriza la parte cultural con algo medible:
+Recoger tres o cuatro respuestas y anotarlas donde se vean. Lo que se busca que aparezca:
+áreas separadas, entregas por encima del muro, despliegues grandes y de noche. Si alguien
+llega rápido a "el muro entre desarrollo y operaciones", avanzar sin exprimir el resto.
 
-> "Westrum estudió accidentes de aviación y errores médicos, y clasificó a las organizaciones por qué hacen con una mala noticia: la ocultan, la ignoran porque no corresponde al procedimiento, o la buscan. DORA midió que la tercera entrega software más rápido. Cómo tratás al que avisa que algo está mal predice tu velocidad de entrega."
+**Ordenar lo que dijeron, no agregar material nuevo.** La slide del muro existe para
+acomodar sus respuestas en dos columnas —qué se le pedía y cómo se medía a cada área— y
+cerrar con el ciclo: era riesgoso porque era infrecuente, lo que lo hacía grande, lo que lo
+volvía riesgoso.
 
-Las 24 capacidades quedan en el apunte. Mencionar que están.
+Ese ciclo conviene decirlo completo, porque **vuelve en el bloque 4**: cuando una plataforma
+mal diseñada agranda el lote otra vez, es este mismo ciclo reapareciendo.
 
-Cerrar con la ley de Conway y el antipatrón del equipo DevOps:
+**Lo único que se agrega: la evidencia.**
 
-> "Si en una empresa hay un 'equipo DevOps' al que se le pide el despliegue, el muro volvió. Cambió de lugar y de nombre."
+> "DevOps tiene una cosa que casi ninguna moda de la industria tiene: evidencia. DORA mide
+> desde 2014 cuatro métricas, dos de rendimiento y dos de estabilidad. El hallazgo es que no
+> se oponen: los equipos que entregan más rápido también rompen menos. Eso invalidó la
+> premisa del muro."
 
-Si hay tiempo, agregar el criterio de diagnóstico, que es lo que se van a llevar aplicable:
+Si el grupo ya conoce las métricas, alcanza con nombrarlas y pasar.
 
-> "¿Cómo distinguís un equipo de plataforma de un 'equipo DevOps'? Por el modo de interacción. Si le pedís cosas y las hace, es un silo. Si publica capacidades que consumís sin pedirle nada, es plataforma. El nombre no decide nada."
+**Lo que ya no se dicta.** El relato de 2009 —Velocity, DevOpsDays, Debois mirando la charla
+por streaming—, la entrevista a Vogels y los cuatro principios de CALMS quedan en las
+secciones 1.1 a 1.3 del apunte. Si alguien pregunta, remitir ahí. La tipología de Westrum
+queda como slide de reserva, oculta: mostrarla solo si el bloque cierra antes de tiempo.
 
-**Riesgo del bloque:** irse por la historia. Ocho minutos, no doce. La historia es el encuadre, no el tema. El anexo del apunte tiene el relato completo de 2009 y el resumen de la entrevista a Vogels; si alguien pregunta por el detalle, remitir ahí en lugar de contarlo en clase.
+**Riesgo del bloque:** volver a explicarlo. Cinco minutos. Si a los cuatro todavía se está
+hablando del muro, cortar y pasar a la pregunta que sigue.
 
-### B2 · Por qué aparece Platform Engineering (9 min)
+### B2 · Los problemas que vinieron después (12 min)
 
-Empezar por lo que cambió debajo: la línea de tiempo de cloud, Docker, Kubernetes, IaC, microservicios. No explicar cada tecnología —las conocen o las verán en otros módulos—; el punto es acumulativo.
+Es el bloque que abre la clase de verdad, y por eso se lleva el tiempo que antes gastaba el
+repaso. Arranca con la segunda pregunta:
 
-> "Cada una de estas resolvió un problema real. Sumadas produjeron uno que ninguna buscaba: la cantidad de cosas que hay que saber para poner un servicio en producción creció más rápido que la capacidad de una persona para saberlas."
+> "¿Y qué problemas nuevos creó? Son dos, y ninguno estaba en el plan."
 
-Mostrar la tabla de las ocho dimensiones de decisión. **Contarla, no leerla**: nombrar tres o cuatro filas y dejar que la densidad haga el trabajo.
+Recoger respuestas sin estirar. Las dos que se buscan son una organizacional y una técnica, y
+ese es el orden en que se desarrollan.
+
+#### Problema uno: la organización
+
+La ley de Conway, y de ahí el antipatrón:
+
+> "Si en una empresa hay un 'equipo DevOps' al que se le pide el despliegue, el muro volvió.
+> Cambió de lugar y de nombre."
+
+El criterio de diagnóstico es lo más aplicable de todo el bloque y conviene decirlo textual:
+
+> "¿Cómo se distingue un equipo de plataforma de un 'equipo DevOps'? Por el modo de
+> interacción. Si le piden cosas y las hace, es un silo. Si publica capacidades que otros
+> consumen sin pedirle nada, es plataforma. El nombre del equipo no decide nada."
+
+#### Problema dos: lo que cambió debajo
+
+La línea de tiempo —cloud, Docker, Kubernetes, IaC, microservicios, GitOps—. No explicar cada
+tecnología: las conocen o las verán en otros módulos. El punto es acumulativo.
+
+> "Cada una de estas resolvió un problema real. Sumadas produjeron uno que ninguna buscaba:
+> la cantidad de cosas que hay que saber para poner un servicio en producción creció más
+> rápido que la capacidad de una persona para saberlas."
+
+Segunda pregunta participativa, la de las decisiones. Recoger dos o tres números a mano
+alzada antes de mostrar la tabla de las ocho dimensiones. **Contarla, no leerla**: nombrar
+tres o cuatro filas y dejar que la densidad haga el trabajo.
+
+Nombrar el antipatrón de operaciones en la sombra: la tarea no desapareció, se concentró
+informalmente en dos o tres personas que además tienen otro trabajo.
 
 Carga cognitiva, con los tres tipos. Analogía para esta audiencia:
 
-> "Rendir un final en un aula que no conocen, con una calculadora que no es la suya. La materia es la carga intrínseca. Buscar el aula y pelearse con la calculadora es la extrínseca. Pensar el problema del examen es la germane. La plataforma existe para que nadie pierda tiempo buscando el aula."
-
-Nombrar el antipatrón de operaciones en la sombra: la tarea no desapareció, se concentró informalmente en dos o tres personas que además tienen otro trabajo.
+> "Rendir un final en un aula que no conocen, con una calculadora que no es la suya. La
+> materia es la carga intrínseca. Buscar el aula y pelearse con la calculadora es la
+> extrínseca. Pensar el problema del examen es la germane. La plataforma existe para que
+> nadie pierda tiempo buscando el aula."
 
 Cerrar con la definición y con la aclaración que evita el malentendido más común:
 
-> "Platform Engineering no reemplaza a DevOps. Es una forma de organizar el trabajo que DevOps hizo necesario."
+> "Platform Engineering no reemplaza a DevOps. Es una forma de organizar el trabajo que
+> DevOps hizo necesario."
 
-**Riesgo del bloque:** estudiantes sin experiencia laboral no tienen el dolor que esto resuelve. Anclarlo en algo propio: un trabajo práctico grupal donde cada integrante armó su entorno a su manera y nada funcionaba igual en dos máquinas.
+**Riesgo del bloque:** estudiantes sin experiencia laboral no tienen el dolor que esto
+resuelve. Anclarlo en algo propio: un trabajo práctico grupal donde cada integrante armó su
+entorno a su manera y nada funcionaba igual en dos máquinas.
 
 ### B3 · Plataforma (10 min)
 

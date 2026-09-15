@@ -34,22 +34,22 @@ La presentación usa la identidad de **DiploDevops**. Craftech aparece como **do
 
 ## 2. Estructura
 
-55 slides, una de ellas de reserva, para 90 minutos. Densidad objetivo: una idea por slide, máximo cinco líneas de texto.
+54 slides de contenido —una de ellas de reserva— más 7 separadores de bloque, para 90 minutos. Densidad objetivo: una idea por slide, máximo cinco líneas de texto.
 
-La numeración con letra —20b, 24b, 31b— marca las slides agregadas sobre la estructura original: van pegadas a la que las precede y desarrollan el mismo punto. Se numeran así para que el recorte sea evidente, no por capricho.
+La numeración con letra —6b, 20b, 24b, 31b— marca las slides agregadas sobre la estructura original: van pegadas a la que las precede y desarrollan el mismo punto. Los números 8 y 9 no existen: quedaron libres al simplificar el bloque de DevOps. Las dos cosas se dejan a la vista para que el recorte sea evidente.
 
 | Slides | Bloque | Cuántas | Minutos | Apunte |
 |---|---|---|---|---|
 | 1–3 | Apertura | 3 | 3 | — |
-| 4–10 | DevOps | 8, una de reserva | 8 | 1 |
-| 11–16 | Por qué aparece Platform Engineering | 6 | 9 | 2 |
+| 4–6b | DevOps | 4, una de reserva | 5 | 1 |
+| 7–16 | Los problemas que vinieron después | 8 | 12 | 1.5 y 2 |
 | 17–24b | Plataforma | 10 | 10 | 4 |
 | 25–33c | Portal | 13 | 11 | 5 y 9.2 |
 | 34–37 | Estandarización | 4 | 9 | 6 |
 | 38–41b | Port | 5 | 5 | 7 |
 | 42–44 | Era agéntica | 3 | 5 | 8 |
 | 45 | Apertura de demostración | 1 | — | — |
-| 46–47 | Cierre | 2 | 4 | — |
+| 46–48 | Cierre | 3 | 4 | — |
 
 Los bloques y los minutos coinciden con la tabla de la sección 3 de [`02-guia-docente.md`](02-guia-docente.md). Si se cambia uno, se cambia el otro.
 
@@ -73,36 +73,40 @@ Tres líneas: se usa una herramienta comercial como ejemplo; no es una recomenda
 
 ### DevOps
 
-**4 · El muro**
-Dos columnas enfrentadas: Desarrollo y Operaciones, con qué se le pedía y cómo se lo medía a cada una. Un muro vertical en el medio.
+> **Bloque de repaso, no de explicación.** El grupo ya cursó DevOps. Estas cuatro slides
+> existen para que lo reconstruyan ellos y para dejar sentado de qué problema venimos. Salieron
+> del recorte las slides de *2009*, *You build it, you run it* y *Qué proponía*: el relato está
+> en el apunte, secciones 1.1 a 1.3. Los números 8 y 9 quedaron libres y no se reutilizan, para
+> que el recorte se vea.
 
-**5 · El ciclo**
-Diagrama circular de cuatro nodos: despliegues infrecuentes → grandes → riesgosos → se hacen menos seguido.
+**4 · ★ Pregunta de apertura**
+Una sola línea en pantalla completa, sobre azul: *¿Qué problema vino a resolver DevOps?*
+Debajo, en chico: *sin apuntes; tres respuestas y seguimos*.
+Las respuestas se anotan donde se vean; la slide siguiente las ordena.
 
-**6 · You build it, you run it**
-Cita de Vogels, verbatim, con la fuente al pie (ACM Queue, 2006).
+**5 · El muro, y el ciclo que lo sostenía**
+Dos paneles enfrentados —Desarrollo y Operaciones— con qué se le pedía y cómo se medía a cada uno.
+Debajo, el ciclo en cuatro pasos: despliegues infrecuentes → lotes grandes → más riesgosos → se hacen menos seguido.
+No agrega material: acomoda lo que el grupo dijo.
 
-**7 · 2009**
-Dos hitos sobre una línea de tiempo: junio, Velocity —Allspaw y Hammond—; octubre, DevOpsDays Gante —Debois—.
-Al pie, el enlace a la charla de 2009.
+**6 · ★ Qué resolvió, con evidencia**
+Las cuatro métricas de DORA agrupadas en sus dos dimensiones, y el hallazgo: *velocidad y estabilidad no se oponen*.
+Es lo único que este bloque agrega a lo que el grupo ya sabe.
 
-**8 · Qué proponía**
-Cuatro ítems: responsabilidad compartida, automatización, lotes chicos, medición.
-
-**9 · ★ Qué resolvió**
-Las cuatro métricas DORA en una tabla, agrupadas en sus dos dimensiones —rendimiento y estabilidad—, y debajo una línea: *velocidad y estabilidad no se oponen*.
-
-**9b · Westrum (slide de reserva)**
+**6b · Westrum (slide de reserva)**
 Tres filas: patológica, burocrática, generativa, con qué hace cada una con una mala noticia.
-Se muestra solo si el bloque va adelantado. Va oculta en la presentación, no eliminada.
+Va oculta. Se muestra solo si el bloque cierra antes de tiempo.
 
-**10 · ★ Ley de Conway y el antipatrón**
-Cita verbatim de Conway (1968), con la fuente.
-Debajo, los antipatrones de DevOps Topologies en una lista corta, y el criterio: *si le piden cosas y las hace, es un silo; si publica capacidades que otros consumen sin pedirle nada, es plataforma*.
+### Los problemas que vinieron después
 
-### Por qué aparece Platform Engineering
+**7 · ★ Segunda pregunta**
+Una línea sobre azul: *¿Y qué problemas nuevos creó?* Debajo: *son dos, y ninguno estaba en el plan*.
+Es la pregunta que abre la clase de verdad.
 
-**11 · Lo que cambió debajo**
+**10 · ★ Problema uno: la organización**
+Cita de Conway con su traducción. Debajo, a la izquierda los antipatrones frecuentes en lista corta; a la derecha el criterio: *si le piden cosas y las hace, es un silo; si publica capacidades que otros consumen sin pedirle nada, es plataforma*.
+
+**11 · Problema dos: lo que cambió debajo**
 Línea de tiempo: cloud, Docker, Kubernetes, Terraform, microservicios, GitOps.
 Línea de cierre: *cada una resolvió un problema real; sumadas crearon uno que ninguna buscaba*.
 
@@ -323,8 +327,8 @@ Al formato de la última filmina del deck institucional: fondo blanco, foto circ
 
 | # | Falta | Bloquea |
 |---|---|---|
-| 1 | Plantilla, paleta, tipografía y logo vectorial de DiploDevops | La construcción del archivo final |
-| 2 | Formato de entrega esperado por el programa | La elección de herramienta |
+| 1 | ~~Plantilla, paleta, tipografía y logos~~ | ✅ Extraídos del deck institucional |
+| 2 | ~~Formato de entrega~~ | ✅ reveal.js, publicado en GitHub Pages |
 | 3 | ~~Nombre del docente~~ | ✅ Matias Machado — Platform Senior Engineer, Craftech |
 | 7 | Temario de los módulos anteriores de la diplomatura | La slide 20b: sin él, los temas quedan genéricos en lugar de nombrar las clases que el grupo cursó |
 | 8 | Confirmación de qué nube se usó en los módulos previos | Qué variante del diagrama oficial mostrar en la slide 20 |

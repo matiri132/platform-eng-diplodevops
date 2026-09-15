@@ -76,139 +76,82 @@
 
 				<!-- ============ DEVOPS ============ -->
 				<section class="divider on-dark" data-background-color="#1D419F">
-					<div class="kicker">Bloque 1</div>
+					<div class="kicker">Bloque 1 · repaso, no explicación</div>
 					<h1>DevOps</h1>
 					<p class="muted" style="font-size:0.6em; margin-top:0.5em">
-						Qué resolvió, y qué problema nuevo dejó
+						Qué vino a resolver. Lo completan ustedes
 					</p>
 				</section>
 
-				<!-- 4 · El muro -->
+				<!-- 4 · Pregunta de apertura -->
+				<section class="statement on-dark" data-background-color="#4A86E6">
+					<p class="big">¿Qué problema vino a resolver DevOps?</p>
+					<p class="sub" style="color:rgba(255,255,255,0.82)">
+						Sin mirar apuntes. Tres respuestas y seguimos.
+					</p>
+					<aside class="notes">
+						DevOps ya lo cursaron: esta clase no lo explica de nuevo. Recoger tres o
+						cuatro respuestas y anotarlas donde se vean. La slide siguiente las ordena.
+						Si el grupo llega rápido a "el muro entre desarrollo y operaciones", avanzar.
+					</aside>
+				</section>
+
+				<!-- 5 · El muro, como consolidación de las respuestas -->
 				<section>
-					<h2>El muro</h2>
+					<h2>El muro, y el ciclo que lo sostenía</h2>
 					<div class="dd-two">
 						<div class="dd-panel">
 							<strong>Desarrollo</strong>
 							<ul class="small" style="margin-top:0.3em">
-								<li>Se le pedía: funcionalidad nueva</li>
-								<li>Se lo medía por: velocidad de cambio</li>
+								<li>Se le pedía funcionalidad nueva</li>
+								<li>Se lo medía por velocidad de cambio</li>
 							</ul>
 						</div>
 						<div class="dd-panel">
 							<strong>Operaciones</strong>
 							<ul class="small" style="margin-top:0.3em">
-								<li>Se le pedía: sostener producción</li>
-								<li>Se lo medía por: estabilidad, ausencia de incidentes</li>
+								<li>Se le pedía sostener producción</li>
+								<li>Se lo medía por estabilidad</li>
 							</ul>
 						</div>
 					</div>
-					<p style="font-size:0.58em; margin-top:0.6em">
-						Cada cambio amenazaba el objetivo de la otra área. Desarrollo
-						<em class="accent">tiraba el software por encima del muro</em> y operaciones lo
-						recibía sin haber participado de ninguna decisión que lo hiciera operable.
-					</p>
-				</section>
-
-				<!-- 5 · El ciclo -->
-				<section>
-					<h2>El ciclo que se retroalimenta</h2>
 					<ol class="dd-steps" style="grid-template-columns:repeat(4,1fr)">
 						<li><span class="n">1</span><span class="t">Despliegues infrecuentes</span></li>
 						<li><span class="n">2</span><span class="t">Lotes grandes</span></li>
 						<li><span class="n">3</span><span class="t">Más riesgosos</span></li>
 						<li><span class="n">4</span><span class="t">Se hacen menos seguido</span></li>
 					</ol>
-					<p style="font-size:0.6em; margin-top:0.7em">
-						Ventanas mensuales o trimestrales, de noche, con equipos de guardia. Era
-						riesgoso porque era infrecuente, lo que lo hacía grande, lo que lo volvía
-						riesgoso.
-					</p>
+					<aside class="notes">
+						Ordenar lo que el grupo dijo sobre estas dos columnas. El ciclo es el cierre:
+						era riesgoso porque era infrecuente, lo que lo hacía grande, lo que lo volvía
+						riesgoso. Reaparece en el bloque 4, cuando la plataforma vuelve a agrandar el
+						lote.
+					</aside>
 				</section>
 
-				<!-- 6 · You build it, you run it -->
+				<!-- 6 · Qué resolvió -->
 				<section>
-					<h2>Amazon rompe el ciclo, 2006</h2>
-					<div class="dd-quote">
-						<div class="en">
-							"You build it, you run it. This brings developers into contact with the
-							day-to-day operation of their software. It also brings them into
-							day-to-day contact with the customer."
-						</div>
-						<div class="es">
-							"Quien lo construye, lo opera. Esto pone a quien desarrolla en contacto
-							con la operación diaria de su software. También lo pone en contacto
-							diario con el cliente."
-						</div>
-						<div class="src">
-							Werner Vogels, entrevistado por Jim Gray — ACM Queue, 2006
-						</div>
-					</div>
-					<p class="dd-source">queue.acm.org/detail.cfm?id=1142065</p>
-				</section>
-
-				<!-- 7 · 2009 -->
-				<section>
-					<h2>2009: dos hechos</h2>
-					<div class="dd-two">
-						<div class="ct-card">
-							<div class="num">Junio</div>
-							<div class="ct-title">Velocity, O'Reilly</div>
-							<p>
-								Allspaw (ops) y Hammond (dev), de Flickr, presentan
-								<em class="accent">10+ Deploys per Day</em>. Una empresa desplegando
-								diez veces por día cuando la norma era mensual.
-							</p>
-						</div>
-						<div class="ct-card">
-							<div class="num">Octubre</div>
-							<div class="ct-title">DevOpsDays, Gante</div>
-							<p>
-								Debois no pudo viajar, vio la charla por streaming y organizó su
-								propio encuentro. Ahí aparece el término <em class="accent">DevOps</em>.
-							</p>
-						</div>
-					</div>
-					<p style="font-size:0.56em; margin-top:0.6em" class="muted">
-						El nombre quedó del hashtag, acortado para entrar en los 140 caracteres de
-						Twitter.
-					</p>
-					<p class="dd-source">youtube.com/watch?v=LdOe18KhtT4 · blog.newrelic.com</p>
-				</section>
-
-				<!-- 8 · Qué proponía -->
-				<section>
-					<h2>Qué proponía</h2>
-					<ul style="font-size:0.66em">
-						<li><strong>Responsabilidad compartida.</strong> Quien construye participa de operar</li>
-						<li><strong>Automatización.</strong> Todo paso manual y repetido se automatiza</li>
-						<li><strong>Lotes pequeños y frecuentes.</strong> Cada despliegue chico es menos riesgoso</li>
-						<li><strong>Medición y retroalimentación.</strong> El equipo ve el efecto de sus cambios</li>
-					</ul>
-					<p class="muted" style="font-size:0.5em; margin-top:0.4em">
-						Acrónimo divulgado: CALMS. Sistematización: <em>The Phoenix Project</em> (2013) y
-						<em>The DevOps Handbook</em> (2016).
-					</p>
-				</section>
-
-				<!-- 9 · Qué resolvió -->
-				<section>
-					<h2>Qué resolvió: la evidencia</h2>
+					<h2>Qué resolvió, con evidencia</h2>
 					<table>
-						<tr><th>Dimensión</th><th>Métrica</th><th>Qué mide</th></tr>
-						<tr><td>Rendimiento</td><td>Frecuencia de despliegue</td><td>Cada cuánto se libera a producción</td></tr>
-						<tr><td>Rendimiento</td><td>Lead time para cambios</td><td>Del commit a producción</td></tr>
-						<tr><td>Estabilidad</td><td>Tasa de fallas de cambios</td><td>Despliegues que causan degradación</td></tr>
-						<tr><td>Estabilidad</td><td>Tiempo de restauración</td><td>Cuánto tarda en recuperarse</td></tr>
+						<tr><th>Dimensión</th><th>Métrica</th></tr>
+						<tr><td>Rendimiento</td><td>Frecuencia de despliegue · lead time para cambios</td></tr>
+						<tr><td>Estabilidad</td><td>Tasa de fallas de cambios · tiempo de restauración</td></tr>
 					</table>
 					<div class="ct-objective">
 						<span>Hallazgo central</span>
 						Velocidad y estabilidad <strong>no se oponen</strong>. Los equipos de mejor
-						desempeño puntúan alto en las cuatro a la vez.
+						desempeño puntúan alto en las cuatro a la vez — y eso invalidó la premisa del
+						muro.
 					</div>
 					<p class="dd-source">DORA — Accelerate State of DevOps · dora.dev</p>
+					<aside class="notes">
+						Es el único dato duro del bloque y vale decirlo con nombre: no es una opinión,
+						es un estudio de encuesta de más de una década. Si el grupo ya lo vio, alcanza
+						con nombrar las cuatro métricas y el hallazgo.
+					</aside>
 				</section>
 
-				<!-- 9b · Westrum (reserva) -->
+				<!-- 6b · Westrum (slide de reserva) -->
 				<section data-visibility="hidden">
 					<h2>Tipología de Westrum</h2>
 					<table>
@@ -223,15 +166,34 @@
 						<strong>predictor medible</strong> de su velocidad de entrega.
 					</div>
 					<aside class="notes">
-						Slide de reserva: mostrar solo si el bloque va adelantado. Está oculta con
-						data-visibility="hidden" — se llega con la barra de búsqueda o quitando el atributo.
+						Slide de reserva, oculta con data-visibility="hidden". Mostrar solo si el
+						bloque va adelantado.
 					</aside>
 					<p class="dd-source">Westrum, BMJ Quality &amp; Safety, 2004</p>
 				</section>
 
-				<!-- 10 · Conway -->
+				<!-- ============ POR QUÉ APARECE PLATFORM ENGINEERING ============ -->
+				<section class="divider on-dark" data-background-color="#1D419F">
+					<div class="kicker">Bloque 2 · acá empieza la clase</div>
+					<h1>Los problemas que<br />vinieron después</h1>
+				</section>
+
+				<!-- 7 · Segunda pregunta -->
+				<section class="statement on-dark" data-background-color="#4A86E6">
+					<p class="big">¿Y qué problemas nuevos creó?</p>
+					<p class="sub" style="color:rgba(255,255,255,0.82)">
+						Son dos, y ninguno estaba en el plan.
+					</p>
+					<aside class="notes">
+						Esta es la pregunta que abre la clase de verdad. Recoger respuestas, pero sin
+						estirar: las dos que buscamos son el antipatrón organizacional (slide
+						siguiente) y la acumulación técnica que termina en carga cognitiva.
+					</aside>
+				</section>
+
+				<!-- 10 · Conway y el antipatrón: el problema organizacional -->
 				<section class="dense">
-					<h2>Ley de Conway, y el antipatrón</h2>
+					<h2>Problema uno: la organización</h2>
 					<div class="dd-quote">
 						<div class="en">
 							"Organizations which design systems […] are constrained to produce designs
@@ -247,31 +209,27 @@
 						<div>
 							<p><strong>Antipatrones frecuentes</strong></p>
 							<ul class="xsmall">
-								<li>Silos Dev y Ops</li>
 								<li>Silo del equipo DevOps</li>
-								<li>"Dev no necesita Ops"</li>
 								<li>DevOps como equipo de herramientas</li>
 								<li>SysAdmin renombrado · SRE falso</li>
 							</ul>
 						</div>
 						<div class="ct-objective" style="margin-top:0">
-							<span>Criterio</span>
+							<span>El criterio</span>
 							Si se le piden cosas y las hace, es un silo. Si publica capacidades que
 							otros consumen sin pedirle nada, es plataforma.
 						</div>
 					</div>
 					<p class="dd-source">melconway.com · web.devopstopologies.com</p>
-				</section>
-
-				<!-- ============ POR QUÉ APARECE PLATFORM ENGINEERING ============ -->
-				<section class="divider on-dark" data-background-color="#1D419F">
-					<div class="kicker">Bloque 2</div>
-					<h1>Por qué aparece<br />Platform Engineering</h1>
+					<aside class="notes">
+						El remate: si en una empresa hay un "equipo DevOps" al que se le pide el
+						despliegue, el muro volvió. Cambió de lugar y de nombre.
+					</aside>
 				</section>
 
 				<!-- 11 · Lo que cambió debajo -->
 				<section class="dense">
-					<h2>Lo que cambió debajo</h2>
+					<h2>Problema dos: lo que cambió debajo</h2>
 					<table>
 						<tr><th>Año</th><th>Cambio</th><th>Efecto</th></tr>
 						<tr><td>2006→</td><td>Cloud pública</td><td>La infraestructura pasa a ser software: se pide por API</td></tr>
